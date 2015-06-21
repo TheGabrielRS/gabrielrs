@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/public/templates/template.xhtml">
+
+	<ui:define name="metadata"></ui:define>
+
+	<ui:define name="content">
+		<p:panel id="principal" header="Registrar Novo Incidente">
+
+			<h:panelGrid columns="2"
+				style="margin-bottom:20px; width: 30%; margin: 0 auto; ">
+
+				<p:outputLabel for="titulo"
+					value="#{msg['registrarIncidente.label.titulo']}" />
+				<p:inputText id="titulo" value="#{cadastrarIncidenteMB.incidente.titulo}"
+					required="true" />
+
+
+				<p:outputLabel for="descricao"
+					value="#{msg['registrarIncidente.label.descricao']}" />
+				<p:inputTextarea id="descricao" rows="6" cols="33" value="#{cadastrarIncidenteMB.incidente.descricao}" required="true" />
+
+				<p:outputLabel for="data"
+					value="#{msg['registrarIncidente.label.data']}" />
+				<p:calendar id="data" value="#{cadastrarIncidenteMB.incidente.data}"
+					required="true" />
+					
+					
+				<p:commandButton value="#{msg['cadastrarUsuario.button.salvar']}"
+					update="panel" action="#{cadastrarIncidenteMB.salva}" ajax="false"
+					style="border: none;" />
+
+				<p:commandButton value="#{msg['button.back']}" action="login"
+					ajax="false" style="border: none;" immediate="true" />
+			</h:panelGrid>
+		</p:panel>
+
+	</ui:define>
+</ui:composition>
+	
+	

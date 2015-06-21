@@ -13,27 +13,38 @@
 	<ui:define name="content">
 			<p:panel id="principal" header="#{msg['login.label.title']}"
 				rendered="#{!gerenciarLoginMB.logado}"
-				style="margin-bottom:20px; width: 30%; margin: 0 auto; ">
+				style="margin-bottom:20px; width: 40%; margin: 0 auto; ">
 
 				<h:panelGrid columns="2" rendered="#{!gerenciarLoginMB.logado}"
 					cellpadding="10"
 					style="border:0 !important;border-style: none !important;border-color: white;">
 
 					<f:validateBean>
+						
 						<p:outputLabel for="email">
 							<h:outputText value="#{msg['login.label.email']}" />
 						</p:outputLabel>
 						<p:inputText id="email" value="#{gerenciarLoginMB.usuario.email}" />
+						
 						<p:outputLabel for="senha">
 							<h:outputText value="#{msg['login.label.senha']}" />
 						</p:outputLabel>
 						<p:password id="senha" value="#{gerenciarLoginMB.usuario.senha}" />
+						
+						<p:outputLabel for="incidente">
+							<h:outputText value="#{msg['login.label.incidente']}" />
+						</p:outputLabel>
+						<p:password id="incidente" value="#{gerenciarLoginMB.usuario.senha}" />
+					
 					</f:validateBean>
 					<p:commandButton value="#{msg['login.label.login']}"
 						action="#{gerenciarLoginMB.login}" ajax="false"
 						rendered="#{!gerenciarLoginMB.logado}" />
 					<p:commandButton value="#{msg['login.label.cadastre']}"
 						action="cadastrarUsuario" ajax="false" immediate="true"
+						rendered="#{!gerenciarLoginMB.logado}" />
+					<p:commandButton value="#{msg['login.label.incidente']}"
+						action="registrarIncidente" ajax="false" immediate="true"
 						rendered="#{!gerenciarLoginMB.logado}" />
 				</h:panelGrid>
 			</p:panel>
