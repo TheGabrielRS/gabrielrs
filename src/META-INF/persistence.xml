@@ -9,6 +9,7 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
 		<class>br.edu.ifrs.canoas.tads.lds.bean.Usuario</class>
+		<class>br.edu.ifrs.canoas.tads.lds.bean.Incidente</class>
 
 		<properties>
 			
