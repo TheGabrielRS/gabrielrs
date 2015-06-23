@@ -12,7 +12,7 @@ import br.edu.ifrs.canoas.tads.lds.control.service.ManterIncidenteService;
 
 
 @Named
-@RequestScoped
+@SessionScoped
 public class CadastrarIncidenteMB implements Serializable {
 
 	private static final long serialVersionUID = -3322293812769985007L;
@@ -21,7 +21,7 @@ public class CadastrarIncidenteMB implements Serializable {
 	@Inject
 	private Incidente incidente;
 
-	
+	@Inject
 	private ManterIncidenteService incidenteService;
 	
 	public String salva() {

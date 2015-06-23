@@ -20,7 +20,7 @@ public class ManterIncidenteService {
 	public boolean salvaIncidente(Incidente incidente) 
 	{
 		incidenteDAO.insere(incidente);
-		Mensagens.define(FacesMessage.SEVERITY_INFO, "Incidente cadastrado");
+		//Mensagens.define(FacesMessage.SEVERITY_INFO, "Incidente cadastrado");
 		return true;
 	}
 
