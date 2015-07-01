@@ -27,8 +27,8 @@ public class ManterIncidenteService {
 
 	@SuppressWarnings("unchecked")
 	public List<Incidente> busca(String criterio) {
-		if (criterio != null && criterio.length() > 0) 
-			return incidenteDAO.buscaPorCriterio(criterio);
+		if (criterio != null && criterio.length() > 0)
+				return incidenteDAO.buscaPorCriterio(criterio);
 		else
 			return incidenteDAO.buscaTodos();
 	}
