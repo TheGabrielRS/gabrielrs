@@ -13,11 +13,25 @@
 	<ui:define name="content">
 	
 	<p:panel header="Criterio de Busca">
-		<p:inputText value="#{manterIncidenteMB.criterio}" />
-		<p:commandButton value="Buscar" action="#{manterIncidenteMB.busca()}"/>
+		<p:inputText value="#{manterIncidenteMB.criterio}" style="margin-right: 10px"/>
+		<p:commandButton value="Buscar" action="#{manterIncidenteMB.busca}"/>
+		<p:commandButton value="Voltar" action="login" style="float: right"/>
 	</p:panel>
 	
+	<p:panel header="Resultados da Busca">
+		<p:dataTable var="inc" value="#{manterIncidenteMB.incidentes}">
+			<p:column headerText="Titulo">
+				<h:outputText value="#{inc.titulo}" />
+			</p:column>
+			<p:column headerText="Data do Incidente">
+				<h:outputText value="#{inc.data}" />
+			</p:column>
+			<p:column headerText="Descrição">
+				<h:outputText value="#{inc.descricao}" />
+			</p:column>
+		</p:dataTable>
 	
+	</p:panel>
 		
 	
 	</ui:define>

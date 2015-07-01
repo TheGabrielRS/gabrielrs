@@ -47,6 +47,15 @@ public class ManterIncidenteMB implements Serializable{
 		return incidentes;
 	}
 	
+	public String getCriterio()
+	{
+		return this.criterio;
+	}
+	
+	public void setCriterio(String criterio)
+	{
+		this.criterio = criterio;
+	}
 	
 
 }
