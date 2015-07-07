@@ -2,6 +2,7 @@ package br.edu.ifrs.canoas.tads.lds.model.dao;
 
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -31,9 +32,9 @@ public class IncidenteDAO extends BaseDAO<Incidente, Long>{
 		
 		 if (StrUtil.isNotBlank(incidente.getDescricao()))
 			 criteria.add(Restrictions.eq("descricao", incidente.getDescricao().trim().toLowerCase()));
-		 
-		 if (StrUtil.isNotBlank(incidente.getData()))
-			 criteria.add(Restrictions.eq("data", incidente.getData().trim().toLowerCase()));
+		 Date data = new Date();
+		 if (data.after(incidente.getData()) || data.equals(incidente.getData()))
+			 criteria.add(Restrictions.eq("data", incidente.getData()));
 
 		 return criteria.list();
 		
@@ -43,14 +44,24 @@ public class IncidenteDAO extends BaseDAO<Incidente, Long>{
 	public List<Incidente> buscaPorCriterio(String criterio){
 		return em.createQuery(
 		         "SELECT i "
-		         + "FROM Incidente i"
+		         + "FROM Incidente i "
 		         + "WHERE lower(i.titulo) = :titulo "
-		         + " or lower (i.descricao) = :descricao "
-		         + " or lower (i.data) =  :data ")
+		         + " or lower (i.descricao) = :descricao ")
 		         .setParameter("titulo", criterio.trim().toLowerCase())
 		         .setParameter("descricao", criterio.trim().toLowerCase())
-		         .setParameter("data", criterio.trim().toLowerCase())
 		         .getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Incidente> buscaPorCriterio(Date data)
+	{
+		return em.createQuery(
+		         "SELECT i "
+		         + "FROM Incidente i "
+		         + "WHERE lower(i.data) = :data ")
+		         .setParameter("data", data)
+		         .getResultList();
+
 	}
 
 }

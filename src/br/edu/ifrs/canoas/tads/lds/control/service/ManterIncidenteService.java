@@ -1,5 +1,6 @@
 package br.edu.ifrs.canoas.tads.lds.control.service;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -28,7 +29,16 @@ public class ManterIncidenteService {
 	@SuppressWarnings("unchecked")
 	public List<Incidente> busca(String criterio) {
 		if (criterio != null && criterio.length() > 0)
-				return incidenteDAO.buscaPorCriterio(criterio);
+			return incidenteDAO.buscaPorCriterio(criterio);
+		else
+			return incidenteDAO.buscaTodos();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Incidente> busca(Date data) {
+		Date dataatual = new Date();
+		if (data != null && dataatual.after(data) || dataatual.equals(data))
+			return incidenteDAO.buscaPorCriterio(data);
 		else
 			return incidenteDAO.buscaTodos();
 	}

@@ -43,8 +43,6 @@ public class CadastrarIncidenteMB implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
-	
 	
 	
 

@@ -1,13 +1,10 @@
 package br.edu.ifrs.canoas.tads.lds.bean;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.Length;
-
 
 @Entity
 public class Incidente extends BaseEntity<Long> implements Serializable {
@@ -19,7 +16,7 @@ public class Incidente extends BaseEntity<Long> implements Serializable {
 	private String titulo;
 	
 	@NotNull
-	private String data;
+	private Date data;
 	
 	@NotNull
 	private String descricao;
@@ -36,11 +33,11 @@ public class Incidente extends BaseEntity<Long> implements Serializable {
 		this.titulo = titulo;
 	}
 
-	public String getData() {
+	public Date getData() {
 		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
 
@@ -51,7 +48,6 @@ public class Incidente extends BaseEntity<Long> implements Serializable {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
 	
 	
 	

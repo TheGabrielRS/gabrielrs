@@ -1,6 +1,7 @@
 package br.edu.ifrs.canoas.tads.lds.control.mb;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +31,7 @@ public class ManterIncidenteMB implements Serializable{
 	private ManterIncidenteService incidenteService;
 	
 	private String criterio = "";
+	private Date criteriodata;
 	private List<Incidente> incidentes = new ArrayList<Incidente>();
 	
 	
@@ -40,6 +42,11 @@ public class ManterIncidenteMB implements Serializable{
 	
 	public void busca(){
 		incidentes = incidenteService.busca(criterio);
+		
+	}
+	
+	public void buscaData(){
+		incidentes = incidenteService.busca(criteriodata);
 		
 	}
 	
@@ -57,5 +64,27 @@ public class ManterIncidenteMB implements Serializable{
 		this.criterio = criterio;
 	}
 	
+	public void setIncidente (Incidente incidente)
+	{
+		this.incidente = incidente;
+	}
+	
+	public Incidente getIncidente()
+	{
+		return this.incidente;
+	}
+	
+	public boolean querAlterar()
+	{
+		return true;
+	}
 
+	public Date getCriteriodata() {
+		return criteriodata;
+	}
+
+	public void setCriteriodata(Date criteriodata) {
+		this.criteriodata = criteriodata;
+	}
+	
 }

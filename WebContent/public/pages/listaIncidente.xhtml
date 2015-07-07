@@ -23,13 +23,15 @@
 				<h:outputText value="#{inc.titulo}" />
 			</p:column>
 			<p:column headerText="Data do Incidente">
-				<h:outputText value="#{inc.data}" />
+				<h:outputText value="#{inc.data.toString().split(' ')[0]}"  />
 			</p:column>
 			<p:column headerText="Descrição">
-				<h:outputText value="#{inc.descricao}" />
+				<h:outputText value="#{inc.descricao}" rendered="#{!manterIncidenteMB.querAlterar()}" />
+			</p:column>
+			<p:column>
+				<p:commandLink var="#{inc}" value="Editar" action="editarIncidente" />
 			</p:column>
 		</p:dataTable>
-	
 	</p:panel>
 	
 	

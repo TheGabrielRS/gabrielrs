@@ -12,19 +12,24 @@
 
 	<ui:define name="content">
 	
-	<p:panel header="Criterio de Busca">
+	<p:panel header="Busca por Titulo/Descrição" style="width: 40%; align: left; display: inline-block">
 		<p:inputText value="#{manterIncidenteMB.criterio}" style="margin-right: 10px"/>
 		<p:commandButton value="Buscar" action="#{manterIncidenteMB.busca}"/>
 		<p:commandButton value="Voltar" action="login" style="float: right"/>
 	</p:panel>
+	<p:panel header="Busca por Data" style="width: 40%; float:right; display: inline-block">
+		<p:calendar id="data" value="#{manterIncidenteMB.criteriodata}" style="margin-right: 10px"/>
+		<p:commandButton value="Buscar" action="#{manterIncidenteMB.buscaData}"/>
+		<p:commandButton value="Voltar" action="login" style="float: right"/>
+	</p:panel>
 	
-	<p:panel header="Resultados da Busca">
+	<p:panel header="Resultados da Busca" style="display: inline-block; margin-top: 10px">
 		<p:dataTable var="inc" value="#{manterIncidenteMB.incidentes}">
 			<p:column headerText="Titulo">
 				<h:outputText value="#{inc.titulo}" />
 			</p:column>
 			<p:column headerText="Data do Incidente">
-				<h:outputText value="#{inc.data}" />
+				<h:outputText value="#{inc.data.toString().split(' ')[0]}" />
 			</p:column>
 			<p:column headerText="Descrição">
 				<h:outputText value="#{inc.descricao}" />
