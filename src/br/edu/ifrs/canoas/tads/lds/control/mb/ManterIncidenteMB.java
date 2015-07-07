@@ -37,7 +37,7 @@ public class ManterIncidenteMB implements Serializable{
 	
 	
 	public void lista (){
-		incidentes = incidenteService.busca(null);
+		incidentes = incidenteService.lista();
 	}
 	
 	public void busca(){

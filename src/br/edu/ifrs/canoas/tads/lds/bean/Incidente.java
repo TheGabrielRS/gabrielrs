@@ -20,6 +20,14 @@ public class Incidente extends BaseEntity<Long> implements Serializable {
 	
 	@NotNull
 	private String descricao;
+	
+	public Incidente(String titulo, Date data, String descricao)
+	{
+		super();
+		this.titulo = titulo;
+		this.data = data;
+		this.descricao = descricao;
+	}
 
 	public Incidente() {
 		super();

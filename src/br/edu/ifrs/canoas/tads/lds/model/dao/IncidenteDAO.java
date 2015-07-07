@@ -53,6 +53,12 @@ public class IncidenteDAO extends BaseDAO<Incidente, Long>{
 	}
 	
 	@SuppressWarnings("unchecked")
+	public List<Incidente> listaIncidentes()
+	{
+		return em.createQuery("SELECT i from Incidente i").getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
 	public List<Incidente> buscaPorCriterio(Date data)
 	{
 		return em.createQuery(

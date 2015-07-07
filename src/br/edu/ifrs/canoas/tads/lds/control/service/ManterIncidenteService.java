@@ -1,5 +1,6 @@
 package br.edu.ifrs.canoas.tads.lds.control.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class ManterIncidenteService {
 
 	@Inject
 	private IncidenteDAO incidenteDAO;
+	private Incidente incidenteValida = new Incidente("Busca Inválida", null, "Busca Inválida");
 
 	public boolean salvaIncidente(Incidente incidente) 
 	{
@@ -31,7 +33,16 @@ public class ManterIncidenteService {
 		if (criterio != null && criterio.length() > 0)
 			return incidenteDAO.buscaPorCriterio(criterio);
 		else
-			return incidenteDAO.buscaTodos();
+		{
+			List<Incidente> lista = new ArrayList<Incidente>();
+			lista.add(new Incidente("Busca Inválida", null, "Busca Inválida"));
+			return lista;
+		}		
+	}
+	
+	public List<Incidente> lista ()
+	{
+		return incidenteDAO.listaIncidentes();
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -40,7 +51,12 @@ public class ManterIncidenteService {
 		if (data != null && dataatual.after(data) || dataatual.equals(data))
 			return incidenteDAO.buscaPorCriterio(data);
 		else
-			return incidenteDAO.buscaTodos();
+		{
+			List<Incidente> lista = new ArrayList<Incidente>();
+			lista.add(new Incidente("Busca Inválida", null, "Busca Inválida"));
+			return lista;
+		}
+			
 	}
 
 }
