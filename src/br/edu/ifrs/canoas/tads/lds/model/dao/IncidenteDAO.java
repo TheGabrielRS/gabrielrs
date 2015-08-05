@@ -69,5 +69,5 @@ public class IncidenteDAO extends BaseDAO<Incidente, Long>{
 		         .getResultList();
 
 	}
-
+	
 }

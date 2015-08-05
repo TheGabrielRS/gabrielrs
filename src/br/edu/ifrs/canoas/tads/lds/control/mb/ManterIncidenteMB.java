@@ -11,6 +11,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.Id;
 
 import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
@@ -42,12 +43,18 @@ public class ManterIncidenteMB implements Serializable{
 	
 	public void busca(){
 		incidentes = incidenteService.busca(criterio);
-		
 	}
 	
 	public void buscaData(){
 		incidentes = incidenteService.busca(criteriodata);
 		
+	}
+	
+	public void exclui(Incidente inc)
+	{
+		
+		incidenteService.exclui(inc);
+
 	}
 	
 	public List<Incidente> getIncidentes(){

@@ -55,8 +55,13 @@ public class ManterIncidenteService {
 			List<Incidente> lista = new ArrayList<Incidente>();
 			lista.add(new Incidente("Busca Inválida", null, "Busca Inválida"));
 			return lista;
-		}
-			
+		}		
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void exclui(Incidente incidente)
+	{
+		incidenteDAO.exclui(incidente.getId());
 	}
 
 }
