@@ -13,25 +13,25 @@
 	<ui:define name="content">
 	
 	<p:commandButton value="Listar" action="#{manterIncidenteMB.lista()}" />	
-	<p:commandButton value="Voltar" action="login"/>
+	<p:commandButton value="Voltar" action="login" />
 	
 	<p:panel header="Lista de Incidentes" style="margin: 20px">
 		
 		
-		<p:dataTable var="inc" value="#{manterIncidenteMB.incidentes}" editable="true">
+		<p:dataTable var="inc" value="#{manterIncidenteMB.incidentes}" sortMode="multiple">
 			
-			<p:column headerText="Titulo">
+			<p:column headerText="Titulo" sortBy="#{inc.titulo}">
 					<h:outputText value="#{inc.titulo}" />
 			</p:column>
-			<p:column headerText="Data do Incidente">
+			
+			<p:column headerText="Data do Incidente" sortBy="#{inc.data.toString().split(' ')[0]}">
 					<h:outputText value="#{inc.data.toString().split(' ')[0]}"  />
 			</p:column>
-			<p:column headerText="Descrição">
+			
+			<p:column headerText="Descrição" sortBy="#{inc.descricao}">
 				<h:outputText value="#{inc.descricao}"  />
 			</p:column>
-			<p:column headerText="Ações">
-                 <p:commandButton value="Excluir" onclick="#{manterIncidenteMB.exclui(inc)}" /> <!-- action="#{manterIncidenteMB.exclui(inc.id)}" -->
-            </p:column>
+			
 		</p:dataTable>
 	</p:panel>
 	
