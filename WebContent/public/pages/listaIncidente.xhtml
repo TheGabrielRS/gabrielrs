@@ -12,19 +12,19 @@
 
 	<ui:define name="content">
 	
-	<p:commandButton value="Listar" action="#{manterIncidenteMB.lista()}" />	
+	<p:commandButton value="Listar" action="#{manterIncidenteMB.lista()}" update="dt-incidentes" />	
 	<p:commandButton value="Voltar" action="login" />
 	
 	<p:panel header="Lista de Incidentes" style="margin: 20px">
 		
-		
-		<p:dataTable var="inc" value="#{manterIncidenteMB.incidentes}" sortMode="multiple">
+		<f:event type="postAddToView" listener="#{manterIncidenteMB.lista}" />
+		<p:dataTable var="inc" value="#{manterIncidenteMB.incidentes}" id="dt-incidentes"  selection="#{manterIncidenteMB.incidentes}" >
 			
-			<p:column headerText="Titulo" sortBy="#{inc.titulo}">
+			<p:column headerText="Titulo" >
 					<h:outputText value="#{inc.titulo}" />
 			</p:column>
 			
-			<p:column headerText="Data do Incidente" sortBy="#{inc.data.toString().split(' ')[0]}">
+			<p:column headerText="Data do Incidente" >
 					<h:outputText value="#{inc.data.toString().split(' ')[0]}"  />
 			</p:column>
 			
