@@ -1,4 +1,4 @@
-package br.edu.ifrs.canoas.tads.lds.bean;
+package br.edu.ifrs.canoas.ancient.bean;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

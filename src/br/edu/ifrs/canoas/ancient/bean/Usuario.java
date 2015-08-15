@@ -1,4 +1,4 @@
-package br.edu.ifrs.canoas.tads.lds.bean;
+package br.edu.ifrs.canoas.ancient.bean;
 
 import java.io.Serializable;
 

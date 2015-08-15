@@ -1,4 +1,4 @@
-package br.edu.ifrs.canoas.tads.lds.model.dao;
+package br.edu.ifrs.canoas.ancient.model.dao;
 
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Default;

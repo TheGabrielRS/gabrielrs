@@ -1,4 +1,4 @@
-package br.edu.ifrs.canoas.tads.lds.model.dao;
+package br.edu.ifrs.canoas.ancient.model.dao;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
@@ -12,7 +12,7 @@ import javax.persistence.PersistenceContext;
 
 import org.hibernate.Session;
 
-import br.edu.ifrs.canoas.tads.lds.bean.BaseEntity;
+import br.edu.ifrs.canoas.ancient.bean.BaseEntity;
 
 @Stateless
 // @Named

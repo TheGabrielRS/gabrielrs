@@ -1,4 +1,4 @@
-package br.edu.ifrs.canoas.tads.lds.control.mb;
+package br.edu.ifrs.canoas.ancient.mb;
 
 import java.io.Serializable;
 
@@ -6,8 +6,8 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import br.edu.ifrs.canoas.tads.lds.bean.Incidente;
-import br.edu.ifrs.canoas.tads.lds.control.service.ManterIncidenteService;
+import br.edu.ifrs.canoas.ancient.bean.Incidente;
+import br.edu.ifrs.canoas.ancient.control.service.ManterIncidenteService;
 
 
 @Named

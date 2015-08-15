@@ -1,4 +1,4 @@
-package br.edu.ifrs.canoas.tads.lds.control.mb;
+package br.edu.ifrs.canoas.ancient.mb;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,8 +14,8 @@ import javax.inject.Named;
 import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
 
-import br.edu.ifrs.canoas.tads.lds.bean.Usuario;
-import br.edu.ifrs.canoas.tads.lds.control.service.ManterUsuarioService;
+import br.edu.ifrs.canoas.ancient.bean.Usuario;
+import br.edu.ifrs.canoas.ancient.control.service.ManterUsuarioService;
 
 @Named
 @RequestScoped

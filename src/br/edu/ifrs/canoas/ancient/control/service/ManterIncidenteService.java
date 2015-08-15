@@ -1,4 +1,4 @@
-package br.edu.ifrs.canoas.tads.lds.control.service;
+package br.edu.ifrs.canoas.ancient.control.service;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,18 +8,17 @@ import javax.ejb.Stateless;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 
-import br.edu.ifrs.canoas.tads.lds.bean.Incidente;
-import br.edu.ifrs.canoas.tads.lds.model.dao.IncidenteDAO;
-import br.edu.ifrs.canoas.tads.lds.util.Mensagens;
-import br.edu.ifrs.canoas.tads.lds.util.StrUtil;
+import br.edu.ifrs.canoas.ancient.bean.Incidente;
+import br.edu.ifrs.canoas.ancient.model.dao.IncidenteDAO;
+import br.edu.ifrs.canoas.ancient.util.Mensagens;
+import br.edu.ifrs.canoas.ancient.util.StrUtil;
 
 @Stateless
 public class ManterIncidenteService {
 
 	@Inject
 	private IncidenteDAO incidenteDAO;
-	private Incidente incidenteValida = new Incidente("Busca Inválida", null, "Busca Inválida");
-
+	
 	public boolean salvaIncidente(Incidente incidente) 
 	{
 		incidenteDAO.insere(incidente);
@@ -35,7 +34,7 @@ public class ManterIncidenteService {
 		else
 		{
 			List<Incidente> lista = new ArrayList<Incidente>();
-			lista.add(new Incidente("Busca Inválida", null, "Busca Inválida"));
+			lista.add(new Incidente("Busca Inválida", null, "Busca Inválida", null, null, null));
 			return lista;
 		}		
 	}
@@ -53,7 +52,7 @@ public class ManterIncidenteService {
 		else
 		{
 			List<Incidente> lista = new ArrayList<Incidente>();
-			lista.add(new Incidente("Busca Inválida", null, "Busca Inválida"));
+			lista.add(new Incidente("Busca Inválida", null, "Busca Inválida", null, null, null));
 			return lista;
 		}		
 	}

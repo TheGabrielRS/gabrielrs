@@ -1,4 +1,4 @@
-package br.edu.ifrs.canoas.tads.lds.model.dao;
+package br.edu.ifrs.canoas.ancient.model.dao;
 
 
 import java.util.ArrayList;
@@ -9,8 +9,8 @@ import javax.ejb.Stateless;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
-import br.edu.ifrs.canoas.tads.lds.bean.Usuario;
-import br.edu.ifrs.canoas.tads.lds.util.StrUtil;
+import br.edu.ifrs.canoas.ancient.bean.Usuario;
+import br.edu.ifrs.canoas.ancient.util.StrUtil;
 
 @Stateless
 public class UsuarioDAO extends BaseDAO<Usuario, Long>{

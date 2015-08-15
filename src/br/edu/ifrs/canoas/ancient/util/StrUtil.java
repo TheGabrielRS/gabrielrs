@@ -1,4 +1,4 @@
-package br.edu.ifrs.canoas.tads.lds.util;
+package br.edu.ifrs.canoas.ancient.util;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

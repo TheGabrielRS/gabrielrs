@@ -1,4 +1,4 @@
-package br.edu.ifrs.canoas.tads.lds.control.mb;
+package br.edu.ifrs.canoas.ancient.mb;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -16,8 +16,8 @@ import javax.persistence.Id;
 import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
 
-import br.edu.ifrs.canoas.tads.lds.bean.Incidente;
-import br.edu.ifrs.canoas.tads.lds.control.service.ManterIncidenteService;
+import br.edu.ifrs.canoas.ancient.bean.Incidente;
+import br.edu.ifrs.canoas.ancient.control.service.ManterIncidenteService;
 
 @Named
 @RequestScoped

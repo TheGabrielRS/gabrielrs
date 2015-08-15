@@ -8,8 +8,11 @@
 	<persistence-unit name="projetoBasePU" >
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-		<class>br.edu.ifrs.canoas.tads.lds.bean.Usuario</class>
-		<class>br.edu.ifrs.canoas.tads.lds.bean.Incidente</class>
+		<class>br.edu.ifrs.canoas.ancient.bean.Usuario</class>
+		<class>br.edu.ifrs.canoas.ancient.bean.Incidente</class>
+		<class>br.edu.ifrs.canoas.ancient.bean.Grupo</class>
+		<class>br.edu.ifrs.canoas.ancient.bean.Equipamento</class>
+		<class>br.edu.ifrs.canoas.ancient.bean.Local</class>
 
 		<properties>
 			
