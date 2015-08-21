@@ -18,21 +18,40 @@
 	<p:panel header="Lista de Incidentes" style="margin: 20px">
 		
 		<f:event type="postAddToView" listener="#{manterIncidenteMB.lista}" />
-		<p:dataTable var="inc" value="#{manterIncidenteMB.incidentes}" id="dt-incidentes"  selection="#{manterIncidenteMB.incidentes}" >
+		
+		<p:ajax event="rowEdit" listener="#{manterIncidenteMB.editarIncidente()}" update=":form:msgs" />
+		
+		<p:dataTable var="inc" value="#{manterIncidenteMB.incidentes}" id="dt-incidentes" editable="true"  selection="#{manterIncidenteMB.incidentes}" >
 			
 			<p:column headerText="Titulo" >
-					<h:outputText value="#{inc.titulo}" />
+					<p:cellEditor>
+						<f:facet name="output"><h:outputText value="#{inc.titulo}" /></f:facet>
+						<f:facet name="input"><p:inputText id="tituloInput" value="#{inc.titulo}"/></f:facet>
+					</p:cellEditor>
 			</p:column>
-			
+
+
 			<p:column headerText="Data do Incidente" >
-					<h:outputText value="#{inc.data.toString().split(' ')[0]}"  />
+					<p:cellEditor>
+						<f:facet name="output"><h:outputText value="#{inc.data.toString().split(' ')[0]}"  /></f:facet>
+						<f:facet name="input"><p:inputText value="#{inc.data.toString().split(' ')[0]}"  /></f:facet>
+					</p:cellEditor>
+					
 			</p:column>
 			
 			<p:column headerText="Descrição" sortBy="#{inc.descricao}">
-				<h:outputText value="#{inc.descricao}"  />
+				<p:cellEditor>
+					<f:facet name="output"><h:outputText value="#{inc.descricao}" /></f:facet>
+					<f:facet name="input"><p:inputText value="#{inc.descricao}" /></f:facet>
+				</p:cellEditor>
 			</p:column>
 			
-		</p:dataTable>
+			<p:column headerText="Editar">
+				<p:rowEditor/>
+			</p:column>
+		
+		</p:dataTable>	
+			
 	</p:panel>
 	
 	

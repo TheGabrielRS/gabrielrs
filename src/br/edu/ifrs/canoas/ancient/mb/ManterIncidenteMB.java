@@ -37,6 +37,11 @@ public class ManterIncidenteMB implements Serializable{
 	
 	
 	
+	public void editarIncidente(CellEditEvent edicao)
+	{
+		incidenteService.editarIncidente((Incidente) edicao.getNewValue(),(Incidente) edicao.getOldValue());
+	}
+	
 	public void lista (){
 		incidentes = incidenteService.lista();
 	}

@@ -19,6 +19,13 @@ public class ManterIncidenteService {
 	@Inject
 	private IncidenteDAO incidenteDAO;
 	
+	public void editarIncidente(Incidente incidenteNovo, Incidente incidenteAtual)
+	{
+		if(incidenteNovo != null && !incidenteNovo.equals(incidenteAtual))
+			incidenteDAO.editar(incidenteNovo);
+	}
+	
+	
 	public boolean salvaIncidente(Incidente incidente) 
 	{
 		incidenteDAO.insere(incidente);
@@ -34,7 +41,7 @@ public class ManterIncidenteService {
 		else
 		{
 			List<Incidente> lista = new ArrayList<Incidente>();
-			lista.add(new Incidente("Busca Inválida", null, "Busca Inválida", null, null, null));
+			lista.add(new Incidente("Busca Inválida", null, "Busca Inválida"));
 			return lista;
 		}		
 	}
@@ -52,7 +59,7 @@ public class ManterIncidenteService {
 		else
 		{
 			List<Incidente> lista = new ArrayList<Incidente>();
-			lista.add(new Incidente("Busca Inválida", null, "Busca Inválida", null, null, null));
+			lista.add(new Incidente("Busca Inválida", null, "Busca Inválida"));
 			return lista;
 		}		
 	}

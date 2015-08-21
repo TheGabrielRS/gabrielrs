@@ -70,4 +70,19 @@ public class IncidenteDAO extends BaseDAO<Incidente, Long>{
 
 	}
 	
+	public void editar (Incidente incidente)
+	{
+		em.createQuery(
+			"UPDATE incidente "
+			+ "SET titulo=:titulo, "
+			+ "data=:data, "
+			+ "descricao=:descricao "
+			+ "where id=:id")
+			.setParameter("titulo", incidente.getTitulo())
+			.setParameter("data", incidente.getData())
+			.setParameter("descricao", incidente.getDescricao())
+			.setParameter("id", incidente.getId())
+			.executeUpdate();
+	}
+	
 }
