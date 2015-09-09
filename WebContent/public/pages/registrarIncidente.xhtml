@@ -29,6 +29,13 @@
 				<p:calendar id="data" value="#{cadastrarIncidenteMB.incidente.data}"
 					required="true" />
 					
+				<p:outputLabel for="grupo"
+					value="grupo" />
+				<p:selectOneMenu 	>
+					<f:selectItems value="#{grupoMB.grupos}"/>
+				</p:selectOneMenu>
+					
+					
 					
 				<p:commandButton value="#{msg['registrarIncidente.button.registra']}"
 					action="#{cadastrarIncidenteMB.salva}" ajax="false"

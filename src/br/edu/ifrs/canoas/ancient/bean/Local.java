@@ -17,12 +17,12 @@ public class Local extends BaseEntity<Long> implements Serializable {
 	private String endereco;
 	
 	@NotNull
-	private long coordy;
+	private String coordy;
 	
 	@NotNull
-	private long coordx;
+	private String coordx;
 
-	public Local(String nome, String endereco, long coordy, long coordx) {
+	public Local(String nome, String endereco, String coordy, String coordx) {
 		super();
 		this.nome = nome;
 		this.endereco = endereco;
@@ -51,19 +51,19 @@ public class Local extends BaseEntity<Long> implements Serializable {
 		this.endereco = endereco;
 	}
 
-	public long getCoordy() {
+	public String getCoordy() {
 		return coordy;
 	}
 
-	public void setCoordy(long coordy) {
+	public void setCoordy(String coordy) {
 		this.coordy = coordy;
 	}
 
-	public long getCoordx() {
+	public String getCoordx() {
 		return coordx;
 	}
 
-	public void setCoordx(long coordx) {
+	public void setCoordx(String coordx) {
 		this.coordx = coordx;
 	}
 

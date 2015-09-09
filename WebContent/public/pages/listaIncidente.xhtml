@@ -12,18 +12,21 @@
 
 	<ui:define name="content">
 	
-	<p:commandButton value="Listar" action="#{manterIncidenteMB.lista()}" update="dt-incidentes" />	
+	<p:commandButton value="Listar" action="#{manterIncidenteMB.lista()}" />	
 	<p:commandButton value="Voltar" action="login" />
 	
 	<p:panel header="Lista de Incidentes" style="margin: 20px">
 		
 		<f:event type="postAddToView" listener="#{manterIncidenteMB.lista}" />
 		
-		<p:ajax event="rowEdit" listener="#{manterIncidenteMB.editarIncidente()}" update=":form:msgs" />
 		
-		<p:dataTable var="inc" value="#{manterIncidenteMB.incidentes}" id="dt-incidentes" editable="true"  selection="#{manterIncidenteMB.incidentes}" >
+		<h:form>
+		<p:dataTable var="inc" value="#{manterIncidenteMB.incidentes}" editable="true" editmode="cell" sortMode="multiple"  selection="#{manterIncidenteMB.incidentes}" >
 			
-			<p:column headerText="Titulo" >
+			<p:ajax event="rowEdit" listener="#{manterIncidenteMB.editarIncidente()}" update=":form:msgs"/>
+			<p:ajax event="rowEditCancel" listener="#{manterIncidenteMB.cancelarEdicao()}" update=":form:msgs"/>
+			
+			<p:column headerText="Titulo" sortBy="#{inc.titulo}">
 					<p:cellEditor>
 						<f:facet name="output"><h:outputText value="#{inc.titulo}" /></f:facet>
 						<f:facet name="input"><p:inputText id="tituloInput" value="#{inc.titulo}"/></f:facet>
@@ -31,7 +34,7 @@
 			</p:column>
 
 
-			<p:column headerText="Data do Incidente" >
+			<p:column headerText="Data do Incidente" sortBy="#{inc.data}">
 					<p:cellEditor>
 						<f:facet name="output"><h:outputText value="#{inc.data.toString().split(' ')[0]}"  /></f:facet>
 						<f:facet name="input"><p:inputText value="#{inc.data.toString().split(' ')[0]}"  /></f:facet>
@@ -51,7 +54,7 @@
 			</p:column>
 		
 		</p:dataTable>	
-			
+		</h:form>	
 	</p:panel>
 	
 	

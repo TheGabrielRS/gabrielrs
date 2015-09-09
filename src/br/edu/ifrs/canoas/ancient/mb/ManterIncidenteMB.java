@@ -35,7 +35,10 @@ public class ManterIncidenteMB implements Serializable{
 	private Date criteriodata;
 	private List<Incidente> incidentes = new ArrayList<Incidente>();
 	
-	
+    public void cancelarEdicao (RowEditEvent event) {
+        FacesMessage msg = new FacesMessage("Edit Cancelled");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
 	
 	public void editarIncidente(CellEditEvent edicao)
 	{

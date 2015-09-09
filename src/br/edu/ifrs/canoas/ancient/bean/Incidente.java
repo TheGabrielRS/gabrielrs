@@ -2,12 +2,14 @@ package br.edu.ifrs.canoas.ancient.bean;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import br.edu.ifrs.canoas.ancient.bean.Local;
 import br.edu.ifrs.canoas.ancient.bean.Equipamento;
 import br.edu.ifrs.canoas.ancient.bean.Grupo;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 
@@ -24,6 +26,18 @@ public class Incidente extends BaseEntity<Long> implements Serializable {
 	
 	@NotNull
 	private String descricao;
+	
+	@NotNull
+	private Grupo grupo;
+	
+	private Local local;
+	
+	//private Requerente requerente;
+	
+	@OneToMany
+	private List<Equipamento> equipamento;
+	
+	
 
 	public Incidente(String titulo, Date data, String descricao) {
 		super();

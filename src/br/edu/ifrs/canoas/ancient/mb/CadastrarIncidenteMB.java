@@ -5,9 +5,12 @@ import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 import br.edu.ifrs.canoas.ancient.bean.Incidente;
 import br.edu.ifrs.canoas.ancient.control.service.ManterIncidenteService;
+
 
 
 @Named
@@ -23,12 +26,15 @@ public class CadastrarIncidenteMB implements Serializable {
 	@Inject
 	private ManterIncidenteService incidenteService;
 	
-	public String salva() {
+	public void salva() {
 		if (incidenteService.salvaIncidente(incidente)){
 			incidente = new Incidente();
-			return "manterIncidente";
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Sucesso", "Incidente salvo com sucesso!"));
 		}
-		return "login";
+		else
+		{
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Problema", "O incidente não pôde ser salvo!"));
+		}	
 	}
 	
 
