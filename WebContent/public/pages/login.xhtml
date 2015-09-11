@@ -41,20 +41,6 @@
 										
 				</h:panelGrid>
 			</p:panel>
-			
-			<p:panel header="Incidentes" style="margin-top:20px; width: 40%; margin: auto;">
-				<h:panelGrid columns="2" cellpadding="10" style="margin: auto">
-				<p:commandButton value="#{msg['login.label.incidente']}"
-					action="registrarIncidente" ajax="false" immediate="true"
-					rendered="#{!gerenciarLoginMB.logado}" />
-				<p:commandButton value="Listar Incidentes" 
-					action="listaIncidente" ajax="false" immediate="true"
-					rendered="#{!gerenciarLoginMB.logado}" />
-				<p:commandButton value="Buscar Incidentes"
-					action="buscarIncidente" ajax="false" immediate="true"
-					rendered="#{!gerenciarLoginMB.logado}" />
-				</h:panelGrid>
-			</p:panel>
 
 	</ui:define>
 

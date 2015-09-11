@@ -15,20 +15,32 @@ public class Grupo extends BaseEntity<Long> implements Serializable {
 	private static final long serialVersionUID = 8031013284547191468L;
 
 	@NotNull
+	private String nome;
+	
+	
 	private Usuario gerenciador;
 	
-	@NotNull @OneToMany
+	@OneToMany
 	private List<Usuario> tecnicos;
 
-	public Grupo(Usuario gerenciador, List<Usuario> tecnicos) {
+	public Grupo(Usuario gerenciador, List<Usuario> tecnicos, String nome) {
 		super();
 		this.gerenciador = gerenciador;
 		this.tecnicos = tecnicos;
+		this.nome = nome;
 	}
 	
 	public Grupo()
 	{
 		super();
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public Usuario getGerenciador() {

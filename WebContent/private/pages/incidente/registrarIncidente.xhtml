@@ -30,9 +30,10 @@
 					required="true" />
 					
 				<p:outputLabel for="grupo"
-					value="grupo" />
-				<p:selectOneMenu 	>
-					<f:selectItems value="#{grupoMB.grupos}"/>
+					value="Grupo" />
+				<p:selectOneMenu id="grupo" 	>
+					<f:selectItem var="grupo" itemLabel="Nenhum" itemValue="" />
+					<f:selectItems var="grupo" value="#{grupoMB.grupos}" itemLabel="#{grupo.nome}" itemValue="#{grupo}"/>
 				</p:selectOneMenu>
 					
 					

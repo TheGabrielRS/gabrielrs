@@ -7,10 +7,13 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.edu.ifrs.canoas.ancient.bean.Grupo;
+import br.edu.ifrs.canoas.ancient.bean.Incidente;
 import br.edu.ifrs.canoas.ancient.control.service.GrupoService;
 
 @Named
@@ -30,12 +33,22 @@ public class GrupoMB implements Serializable {
 	
 	private GrupoService grupoService;
 	
-	@PostConstruct
 	public void lista()
 	{
 		setGrupos(grupoService.listaGrupo());	
 	}
 
+	public void salva() {
+		if (grupoService.salvaGrupo(grupo)){
+			grupo = new Grupo();
+		}
+		else
+		{
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Problema", "O incidente não pôde ser salvo!"));
+		}	
+	}
+	
+	
 	public List<Grupo> getGrupos() {
 		return grupos;
 	}
@@ -43,5 +56,23 @@ public class GrupoMB implements Serializable {
 	public void setGrupos(List<Grupo> grupos) {
 		this.grupos = grupos;
 	}
+
+	public Grupo getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(Grupo grupo) {
+		this.grupo = grupo;
+	}
+
+	public GrupoService getGrupoService() {
+		return grupoService;
+	}
+
+	public void setGrupoService(GrupoService grupoService) {
+		this.grupoService = grupoService;
+	}
+	
+	
 
 }

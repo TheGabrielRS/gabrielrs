@@ -11,7 +11,6 @@
 	</ui:define>
 
 	<ui:define name="content">
-	<p:commandButton value="Voltar" action="login" style="display: block; margin: 10px"/>
 	
 	<p:panel header="Busca por Titulo/Descrição" style="width: 40%; float: left; display: inline-block">
 		<p:inputText value="#{manterIncidenteMB.criterio}" style="margin-right: 10px"/>
@@ -22,8 +21,8 @@
 		<p:commandButton value="Buscar" action="#{manterIncidenteMB.buscaData}"/>
 	</p:panel>
 	
-	<p:panel header="Resultados da Busca" style="display: inline-block; margin-top: 10px">
-		<p:dataTable var="inc" value="#{manterIncidenteMB.incidentes}">
+	<p:panel header="Incidentes" style="display: inline-block; margin-top: 10px">
+		<p:dataTable var="inc" value="#{manterIncidenteMB.lista()}">
 			<p:column headerText="Titulo">
 				<h:outputText value="#{inc.titulo}" />
 			</p:column>

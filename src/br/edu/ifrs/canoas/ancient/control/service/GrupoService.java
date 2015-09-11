@@ -22,6 +22,12 @@ public class GrupoService extends BaseEntity<Long> implements Serializable {
 		return grupoDAO.listaGrupo();
 	}
 	
+	public boolean salvaGrupo (Grupo grupo)
+	{
+		grupoDAO.insere(grupo);
+		return true;
+	}
+	
 	
 	
 }
