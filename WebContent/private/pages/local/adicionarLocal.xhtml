@@ -11,10 +11,15 @@
 	</ui:define>
 
 	<ui:define name="content">
-		<p:panel>
-			<p:outputLabel for="nome" value="Nome" />
-			<p:inputText id="nome" value="#{grupoMB.grupo.nome}" />
-			<p:commandButton value="Salvar grupo" action="#{grupoMB.salva}" ajax="false" required="true" />
-		</p:panel>
+	
+	<p:panel>
+		<p:outputLabel value="Nome: " />
+		<p:inputTextarea value="#{manterLocalMB.local.endereco}"/>
+	
+	</p:panel>
+	
+	
+	
 	</ui:define>
+	
 </ui:composition>

@@ -12,16 +12,9 @@
 
 	<ui:define name="content">
 	
-	<p:panel header="Busca por Titulo/Descrição" style="width: 40%; float: left; display: inline-block">
-		<p:inputText value="#{manterIncidenteMB.criterio}" style="margin-right: 10px"/>
-		<p:commandButton value="Buscar" action="#{manterIncidenteMB.busca}"/>
-	</p:panel>
-	<p:panel header="Busca por Data" style="width: 40%; float:right; display: inline-block">
-		<p:calendar id="data" value="#{manterIncidenteMB.criteriodata}" style="margin-right: 10px"/>
-		<p:commandButton value="Buscar" action="#{manterIncidenteMB.buscaData}"/>
-	</p:panel>
+
 	
-	<p:panel header="Incidentes" style="display: inline-block; margin-top: 10px">
+	 <p:panel header="Incidentes" style="display: inline-block; margin-top: 10px">
 		<p:dataTable var="inc" value="#{manterIncidenteMB.lista()}">
 			<p:column headerText="Titulo">
 				<h:outputText value="#{inc.titulo}" />
@@ -33,9 +26,45 @@
 				<h:outputText value="#{inc.descricao}" />
 			</p:column>
 		</p:dataTable>
-	
 	</p:panel>
-		
+	
+	
+		<p:panel>
+			 <p:dataTable var="inc" value="#{manterIncidenteMB.incidentes}"  editable="true" editmode="cell" sortMode="multiple"  selection="#{manterIncidenteMB.incidentes}" >
+
+				<!--  <p:ajax event="rowEdit" listener="#{manterIncidenteMB.editarIncidente()}" />
+				<p:ajax event="rowEditCancel" listener="#{manterIncidenteMB.cancelarEdicao()}"/> -->
+			
+
+				<p:column headerText="Titulo" filterBy="#{inc.titulo}" filterMatchMode="contains">
+						<p:cellEditor>
+							<f:facet name="output"><h:outputText value="#{inc.titulo}" /></f:facet>
+							<f:facet name="input"><p:inputText id="tituloInput" value="#{inc.titulo}"/></f:facet>
+						</p:cellEditor>
+				</p:column>
+	
+	
+				<p:column headerText="Data do Incidente" filterBy="#{inc.data.toString().split(' ')[0]}" filterMatchMode="contains" >
+						<p:cellEditor>
+							<f:facet name="output"><h:outputText value="#{inc.data.toString().split(' ')[0]}"  /></f:facet>
+							<f:facet name="input"><p:calendar value="#{inc.data}"  /></f:facet>
+						</p:cellEditor>
+						
+				</p:column>
+				
+				<p:column headerText="Descrição" filterBy="#{inc.descricao}" filterMatchMode="contains" >
+					<p:cellEditor>
+						<f:facet name="output"><h:outputText  value="#{inc.descricao}" /></f:facet>
+						<f:facet name="input"><p:inputText value="#{inc.descricao}" /></f:facet>
+					</p:cellEditor>
+				</p:column>
+				
+				<p:column headerText="Editar">
+					<p:rowEditor/>
+				</p:column>
+			
+			</p:dataTable>	
+		</p:panel>
 	
 	</ui:define>
 

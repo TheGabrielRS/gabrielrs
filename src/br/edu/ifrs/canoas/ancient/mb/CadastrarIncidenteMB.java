@@ -2,6 +2,7 @@ package br.edu.ifrs.canoas.ancient.mb;
 
 import java.io.Serializable;
 
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -14,7 +15,7 @@ import br.edu.ifrs.canoas.ancient.control.service.ManterIncidenteService;
 
 
 @Named
-@SessionScoped
+@RequestScoped
 public class CadastrarIncidenteMB implements Serializable {
 
 	private static final long serialVersionUID = -3322293812769985007L;

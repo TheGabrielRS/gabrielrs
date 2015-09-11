@@ -39,7 +39,7 @@ public class GrupoMB implements Serializable {
 	}
 
 	public void salva() {
-		if (grupoService.salvaGrupo(grupo)){
+		if (grupoService.salvaGrupo(this.grupo)){
 			grupo = new Grupo();
 		}
 		else

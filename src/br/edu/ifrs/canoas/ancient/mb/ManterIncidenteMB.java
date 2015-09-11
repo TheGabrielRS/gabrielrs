@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -33,7 +34,23 @@ public class ManterIncidenteMB implements Serializable{
 	
 	private String criterio = "";
 	private Date criteriodata;
-	private List<Incidente> incidentes = new ArrayList<Incidente>();
+	private List<Incidente> incidentes;
+	private List<Incidente> incidentesFiltrados;
+	
+	/*@PostConstruct
+	public void init()
+	{
+		lista();
+	}*/
+	
+	
+	public List<Incidente> getIncidentesFiltrados() {
+		return incidentesFiltrados;
+	}
+
+	public void setIncidentesFiltrados(List<Incidente> incidentesFiltrados) {
+		this.incidentesFiltrados = incidentesFiltrados;
+	}
 	
     public void cancelarEdicao (RowEditEvent event) {
         FacesMessage msg = new FacesMessage("Edit Cancelled");
@@ -46,7 +63,7 @@ public class ManterIncidenteMB implements Serializable{
 	}
 	
 	public void lista (){
-		incidentes = incidenteService.lista();
+		this.incidentes = incidenteService.lista();
 	}
 	
 	public void busca(){
@@ -57,7 +74,7 @@ public class ManterIncidenteMB implements Serializable{
 		incidentes = incidenteService.busca(criteriodata);
 		
 	}
-	
+
 	public void exclui(Incidente inc)
 	{
 		
