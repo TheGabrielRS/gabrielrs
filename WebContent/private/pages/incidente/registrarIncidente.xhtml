@@ -10,10 +10,9 @@
 	<ui:define name="metadata"></ui:define>
 
 	<ui:define name="content">
-		<p:panel id="principal" header="Registrar Novo Incidente">
+		<p:panel id="principal" header="Registrar Novo Incidente" style="border-color: white">
 
-			<h:panelGrid columns="2"
-				style="margin-bottom:20px; width: 30%; margin: 0 auto; ">
+			<h:panelGrid columns="2">
 
 				<p:outputLabel for="titulo"
 					value="#{msg['registrarIncidente.label.titulo']}" />
@@ -30,10 +29,9 @@
 					required="true" />
 					
 				<p:outputLabel for="grupo"
-					value="Grupo" />
+					value="Grupo:" />
 				<p:selectOneMenu id="grupo" 	>
-					<f:selectItem var="grupo" itemLabel="Nenhum" itemValue="" />
-					<f:selectItems var="grupo" value="#{grupoMB.grupos}" itemLabel="#{grupo.nome}" itemValue="#{grupo}"/>
+					<f:selectItems var="grupo" value="#{grupoMB.grupos}" itemLabel="#{grupo.nome}"/>
 				</p:selectOneMenu>
 					
 					

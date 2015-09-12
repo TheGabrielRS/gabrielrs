@@ -1,18 +1,19 @@
 
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
                       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core">
 
 
-	<h:form>
+	<ui:define name="metadata">
+	</ui:define>
 
-		<p:outputPanel id="menuPanel" layout="block">
-
-			<p:panelMenu style="width:300px" >
-				<p:submenu label="Usuários">
+ <h:form>
+			<p:panelMenu style="width:100%" >
+				<p:submenu style="border-radius: 0;" label="Usuários">
 					<p:menuitem value="Cadastrar" url="/public/pages/cadastrarUsuario.xhtml"
 						icon="ui-icon-disk" />
 					<p:menuitem value="Manter" url="/private/pages/manterUsuario.xhtml"
@@ -29,13 +30,13 @@
 					<p:menuitem value="Adicionar Local" icon="fa fa-save" url="/private/pages/local/adicionarLocal.xhtml"/>
 				</p:submenu>
 			</p:panelMenu>
+			<div></div>
 			
-			<p:panel style="width:300px">
+			<p:panel style="width:96%; margin: 0 auto">
 				<p:commandButton action="#{gerenciarLoginMB.logout}" value="#{msg['button.logout']}" />
 			</p:panel>
-		</p:outputPanel>
-
 	</h:form>
+
 </ui:composition>
 
 

@@ -7,7 +7,10 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	template="/public/templates/template.xhtml">
 
-	<ui:define name="metadata"></ui:define>
+	<ui:define name="metadata">
+		<h:outputStylesheet library="materialize" name="css/materialize.css"  />
+		<h:outputScript library="materialize" name="js/materialize.js" />
+	</ui:define>
 
 	<ui:define name="content">
 			<h:outputText value="#{msg['index.label.bemvindo']}" />

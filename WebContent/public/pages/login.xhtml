@@ -10,31 +10,28 @@
 	</ui:define>
 
 	<ui:define name="content">
-			<p:panel id="principal" header="#{msg['login.label.title']}"
+			<p:panel  id="principal" header="Login"
 				rendered="#{!gerenciarLoginMB.logado}"
-				style="margin-bottom:20px; width: 40%; margin: 0 auto; ">
-
+				style="margin-bottom:20px; width: 40%; margin: 0 auto;">
+				
 				<h:panelGrid columns="2" rendered="#{!gerenciarLoginMB.logado}"
 					cellpadding="10"
-					style="border:0 !important;border-style: none !important;border-color: white;">
-
+					style="border:0 !important;border-style: none !important;border-color: white; margin: 0 auto">
+					
 					<f:validateBean>
-						
-						<p:outputLabel for="email">
+						<p:outputLabel  for="email">
 							<h:outputText value="#{msg['login.label.email']}" />
 						</p:outputLabel>
 						<p:inputText id="email" value="#{gerenciarLoginMB.usuario.email}" />
-						
 						<p:outputLabel for="senha">
 							<h:outputText value="#{msg['login.label.senha']}" />
 						</p:outputLabel>
 						<p:password id="senha" value="#{gerenciarLoginMB.usuario.senha}" />
-						
-					
 					</f:validateBean>
+						
 					<p:commandButton value="#{msg['login.label.login']}"
 						action="#{gerenciarLoginMB.login}" ajax="false"
-						rendered="#{!gerenciarLoginMB.logado}" />
+						rendered="#{!gerenciarLoginMB.logado}"  />
 					<p:commandButton value="#{msg['login.label.cadastre']}"
 						action="cadastrarUsuario" ajax="false" immediate="true"
 						rendered="#{!gerenciarLoginMB.logado}" />

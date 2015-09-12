@@ -18,8 +18,7 @@
 	<h:head>
 		<p:ajaxStatus onstart="statusDialog.show();"
 			onsuccess="statusDialog.hide();" widgetVar="statusDialog" />
-			
-		<h:outputStylesheet library="css" name="style.css"  />
+		
 	
 		<p:layout fullPage="true" resizeTitle="resize"
 			style="background-color:#FFFFFF;">
@@ -28,7 +27,7 @@
 			</p:layoutUnit>
 
 			<p:layoutUnit position="west" id="west" resizable="false" rendered="#{gerenciarLoginMB.logado}"
-				header="#{msg['menu.title']}" style="height:580px;overflow:hidden;"
+				style="height:580px;overflow:hidden;"
 				size="225">
 				<ui:include src="menu.xhtml" />
 			</p:layoutUnit>
