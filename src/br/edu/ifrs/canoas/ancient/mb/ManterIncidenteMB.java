@@ -34,14 +34,15 @@ public class ManterIncidenteMB implements Serializable{
 	
 	private String criterio = "";
 	private Date criteriodata;
+	
 	private List<Incidente> incidentes;
 	private List<Incidente> incidentesFiltrados;
 	
-	/*@PostConstruct
+	@PostConstruct
 	public void init()
 	{
 		lista();
-	}*/
+	}
 	
 	
 	public List<Incidente> getIncidentesFiltrados() {
@@ -63,7 +64,7 @@ public class ManterIncidenteMB implements Serializable{
 	}
 	
 	public void lista (){
-		this.incidentes = incidenteService.lista();
+		setIncidentes(incidenteService.lista());
 	}
 	
 	public void busca(){

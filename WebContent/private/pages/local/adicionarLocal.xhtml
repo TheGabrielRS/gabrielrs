@@ -13,9 +13,13 @@
 	<ui:define name="content">
 	
 	<p:panel>
-		<p:outputLabel value="Nome: " />
-		<p:inputTextarea value="#{manterLocalMB.local.endereco}"/>
-	
+		<p:outputLabel for="nome" value="Nome: " />
+		<p:inputText id="nome" value="#{manterLocalMB.local.nome}"/>
+		<br></br>
+		<p:outputLabel for="endereco" value="Endereço:" />
+		<p:inputTextarea id="endereco" value="#{manterLocalMB.local.endereco}"/>
+		<br></br>
+		<p:commandButton value="Cadastrar" action="#{manterLocalMB.salvar}" />
 	</p:panel>
 	
 	

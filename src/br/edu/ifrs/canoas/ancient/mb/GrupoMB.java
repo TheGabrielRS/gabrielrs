@@ -31,13 +31,20 @@ public class GrupoMB implements Serializable {
 	
 	private List<Grupo> grupos = new ArrayList<Grupo>();
 	
+	@Inject
 	private GrupoService grupoService;
 	
 	public void lista()
 	{
 		setGrupos(grupoService.listaGrupo());	
 	}
-
+	
+	@PostConstruct
+	public void init()
+	{
+		lista();
+	}
+	
 	public void salva() {
 		if (grupoService.salvaGrupo(this.grupo)){
 			grupo = new Grupo();

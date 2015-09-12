@@ -69,4 +69,9 @@ public class UsuarioDAO extends BaseDAO<Usuario, Long>{
 		         .getResultList();
 	}
 
+	public List<Usuario> lista()
+	{
+		return em.createQuery("SELECT u FROM Usuario u").getResultList();
+	}
+	
 }

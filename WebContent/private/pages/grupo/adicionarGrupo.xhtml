@@ -11,10 +11,22 @@
 	</ui:define>
 
 	<ui:define name="content">
-		<p:panel>
-			<p:outputLabel for="nome" value="Nome" />
+		<p:panelGrid columns="2" layout="grid">
+			
+			<p:outputLabel for="nome" value="Nome:" />
 			<p:inputText id="nome" value="#{grupoMB.grupo.nome}" />
+			
+			<p:outputLabel for="gerenciador" value="Gerenciador:"/>
+			<p:selectOneMenu id="gerenciador">
+				<f:selectItems var="gerenciador" value="#{manterUsuarioMB.usuarios}" itemLabel="#{gerenciador.nome}" itemValue="#{gerenciador}" />
+			</p:selectOneMenu>
+			
+			<p:outputLabel for="tecnicos" value="Tecnicos: "/>
+			<p:selectManyCheckbox id="tecnicos">
+				<f:selectItems var="tecnico" value="#{manterUsuarioMB.usuarios}" itemLabel="#{tecnico.nome}" itemValue="#{tecnico}"/>
+			</p:selectManyCheckbox>
+			
 			<p:commandButton value="Salvar grupo" action="#{grupoMB.salva}" ajax="false" required="true" />
-		</p:panel>
+		</p:panelGrid>
 	</ui:define>
 </ui:composition>

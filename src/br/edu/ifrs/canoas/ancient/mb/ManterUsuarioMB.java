@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -36,11 +37,22 @@ public class ManterUsuarioMB implements Serializable {
 	private String criterio = "";
 	private List<Usuario> usuarios = new ArrayList<Usuario>();
 
+	@PostConstruct
+	public void init()
+	{
+		lista();
+	}
+	
 	public void busca() {
 		usuarios = usuarioService.busca(criterio);
 		System.out.println(usuarios.size());
 	}
-
+	
+	public void lista()
+	{
+		setUsuarios(usuarioService.lista());
+	}
+	
 	public String salva() {
 		if (usuarioService.salvaUsario(usuario)){
 			gerenciarLoginMB.setUsuario(usuario);

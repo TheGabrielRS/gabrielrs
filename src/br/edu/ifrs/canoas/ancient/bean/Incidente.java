@@ -28,7 +28,7 @@ public class Incidente extends BaseEntity<Long> implements Serializable {
 	private String descricao;
 	
 	
-	private Grupo grupo = new Grupo ("grupo teste");
+	private Grupo grupo;
 	
 	private Local local;
 	

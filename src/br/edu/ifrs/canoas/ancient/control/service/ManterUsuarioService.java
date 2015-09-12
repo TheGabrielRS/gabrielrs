@@ -72,5 +72,10 @@ public class ManterUsuarioService {
 		else
 			return usuarioDAO.buscaTodos();
 	}
+	
+	public List<Usuario> lista()
+	{
+		return usuarioDAO.lista();
+	}
 
 }
