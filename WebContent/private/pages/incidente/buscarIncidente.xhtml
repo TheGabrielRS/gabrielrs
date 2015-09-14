@@ -12,28 +12,13 @@
 
 	<ui:define name="content">
 	
-
-	
-	<p:panel header="Incidentes" style="display: inline-block; margin-top: 10px">
-		<p:dataTable var="inc" value="#{manterIncidenteMB.lista()}">
-			<p:column headerText="Título">
-				<h:outputText value="#{inc.titulo}" />
-			</p:column>
-			<p:column headerText="Data do Incidente">
-				<h:outputText value="#{inc.data.toString().split(' ')[0]}" />
-			</p:column>
-			<p:column headerText="Descrição">
-				<h:outputText value="#{inc.descricao}" />
-			</p:column>
-		</p:dataTable>
-	</p:panel>
 	
 	
 		<p:panel>
 			 <p:dataTable var="inc" value="#{manterIncidenteMB.incidentes}"  editable="true" editmode="cell" sortMode="multiple"  selection="#{manterIncidenteMB.incidentes}" >
 
-				<!--  <p:ajax event="rowEdit" listener="#{manterIncidenteMB.editarIncidente()}" />
-				<p:ajax event="rowEditCancel" listener="#{manterIncidenteMB.cancelarEdicao()}"/> -->
+				 <f:ajax event="rowEdit" listener="#{manterIncidenteMB.editarIncidente()}" />
+				<f:ajax event="rowEditCancel" listener="#{manterIncidenteMB.cancelarEdicao()}"/> 
 			
 
 				<p:column headerText="Titulo" filterBy="#{inc.titulo}" filterMatchMode="contains">

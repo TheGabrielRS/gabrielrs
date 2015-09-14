@@ -84,6 +84,7 @@ public class ManterIncidenteMB implements Serializable{
 	}
 	
 	public List<Incidente> getIncidentes(){
+		incidentes = incidenteService.lista();
 		return incidentes;
 	}
 	
