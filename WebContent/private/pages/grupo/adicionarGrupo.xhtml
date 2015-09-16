@@ -18,15 +18,15 @@
 				<p:outputLabel for="nome" value="Nome:" />
 				<p:inputText id="nome" value="#{grupoMB.grupo.nome}" />
 				
-				<!-- <p:outputLabel for="gerenciador" value="Gerenciador:"/>
-				<p:selectOneMenu id="gerenciador">
+				<p:outputLabel for="gerenciador" value="Gerenciador:"/>
+				<p:selectOneMenu id="gerenciador" value="#{grupoMB.grupo.gerenciador}" converter="conversor">
 					<f:selectItems var="gerenciador" value="#{manterUsuarioMB.usuarios}" itemLabel="#{gerenciador.nome}" itemValue="#{gerenciador}" />
 				</p:selectOneMenu>
 				
 				<p:outputLabel for="tecnicos" value="Tecnicos: "/>
-				<p:selectManyCheckbox id="tecnicos">
+				<p:selectManyCheckbox id="tecnicos" value="#{grupoMB.grupo.tecnicos}" converter="conversor">
 					<f:selectItems var="tecnico" value="#{manterUsuarioMB.usuarios}" itemLabel="#{tecnico.nome}" itemValue="#{tecnico}"/>
-				</p:selectManyCheckbox> -->
+				</p:selectManyCheckbox>  
 				
 				<p:commandButton value="Salvar grupo" action="#{grupoMB.salva}" ajax="false" required="true" />
 			</h:panelGrid>

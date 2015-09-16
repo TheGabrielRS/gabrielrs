@@ -39,11 +39,13 @@ public class Incidente extends BaseEntity<Long> implements Serializable {
 	
 	
 
-	public Incidente(String titulo, Date data, String descricao) {
+	public Incidente(String titulo, Date data, String descricao, Grupo grupo, Local local) {
 		super();
 		this.titulo = titulo;
 		this.data = data;
 		this.descricao = descricao;
+		this.grupo = grupo;
+		this.local = local;
 	}
 
 	public Incidente() {
@@ -77,4 +79,30 @@ public class Incidente extends BaseEntity<Long> implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	public Grupo getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(Grupo grupo) {
+		this.grupo = grupo;
+	}
+
+	public Local getLocal() {
+		return local;
+	}
+
+	public void setLocal(Local local) {
+		this.local = local;
+	}
+
+	public List<Equipamento> getEquipamento() {
+		return equipamento;
+	}
+
+	public void setEquipamento(List<Equipamento> equipamento) {
+		this.equipamento = equipamento;
+	}
+	
+	
 }

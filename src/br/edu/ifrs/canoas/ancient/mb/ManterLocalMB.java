@@ -1,7 +1,9 @@
 package br.edu.ifrs.canoas.ancient.mb;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -24,6 +26,8 @@ public class ManterLocalMB implements Serializable {
 	@Inject
 	private Local local;
 	
+	private List<Local> locais;
+	
 	@Inject
 	private ManterLocalService localService;
 	
@@ -37,6 +41,26 @@ public class ManterLocalMB implements Serializable {
 		else
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Falha", "Local salvo com sucesso!"));
 			
+	}
+	
+	@PostConstruct
+	public void init()
+	{
+		lista();
+	}
+	
+	
+	public void lista()
+	{
+		setLocais(localService.getLocalDAO().buscaTodos());
+	}
+
+	public List<Local> getLocais() {
+		return locais;
+	}
+
+	public void setLocais(List<Local> locais) {
+		this.locais = locais;
 	}
 
 	public Local getLocal() {

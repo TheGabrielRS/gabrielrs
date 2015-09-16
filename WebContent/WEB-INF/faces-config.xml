@@ -16,5 +16,11 @@
 
 	</application>
 
+	<converter>
+		<description>Conversor</description>
+		<converter-id>conversor</converter-id>
+		<converter-class>br.edu.ifrs.canoas.ancient.converter.Conversor</converter-class>
+	</converter>
+
 
 </faces-config>

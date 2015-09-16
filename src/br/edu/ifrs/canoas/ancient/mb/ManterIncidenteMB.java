@@ -66,15 +66,6 @@ public class ManterIncidenteMB implements Serializable{
 	public void lista (){
 		setIncidentes(incidenteService.lista());
 	}
-	
-	public void busca(){
-		incidentes = incidenteService.busca(criterio);
-	}
-	
-	public void buscaData(){
-		incidentes = incidenteService.busca(criteriodata);
-		
-	}
 
 	public void exclui(Incidente inc)
 	{

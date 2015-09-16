@@ -30,8 +30,13 @@
 					
 				<p:outputLabel for="grupo"
 					value="Grupo:" />
-				<p:selectOneMenu id="grupo" >
-					<f:selectItems var="grupo" value="#{grupoMB.grupos}" itemLabel="#{grupo.nome}"/>
+				<p:selectOneMenu id="grupo" value="#{cadastrarIncidenteMB.incidente.grupo}" converter="conversor">
+					<f:selectItems var="grupo" value="#{grupoMB.grupos}" itemLabel="#{grupo.nome}" itemValue="#{grupo}"/>
+				</p:selectOneMenu>
+				
+				<p:outputLabel for="local" value="Local: "/>
+				<p:selectOneMenu id="local" value="#{cadastrarIncidenteMB.incidente.local}" converter="conversor">
+					<f:selectItems var="local" value="#{manterLocalMB.locais}" itemLabel="#{local.nome}" itemValue="#{local}"/>
 				</p:selectOneMenu>
 					
 					

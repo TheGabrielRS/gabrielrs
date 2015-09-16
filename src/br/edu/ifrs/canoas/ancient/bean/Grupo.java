@@ -32,6 +32,46 @@ public class Grupo extends BaseEntity<Long> implements Serializable {
 		this.tecnicos = tecnicos;
 	}
 
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((gerenciador == null) ? 0 : gerenciador.hashCode());
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((tecnicos == null) ? 0 : tecnicos.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Grupo other = (Grupo) obj;
+		if (gerenciador == null) {
+			if (other.gerenciador != null)
+				return false;
+		} else if (!gerenciador.equals(other.gerenciador))
+			return false;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
+		if (tecnicos == null) {
+			if (other.tecnicos != null)
+				return false;
+		} else if (!tecnicos.equals(other.tecnicos))
+			return false;
+		return true;
+	}
+
+
 	public Grupo()
 	{
 		super();

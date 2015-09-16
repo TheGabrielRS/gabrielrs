@@ -23,4 +23,14 @@ public class ManterLocalService {
 		
 	}
 
+	public LocalDAO getLocalDAO() {
+		return localDAO;
+	}
+
+	public void setLocalDAO(LocalDAO localDAO) {
+		this.localDAO = localDAO;
+	}
+
+	
+	
 }

@@ -33,35 +33,9 @@ public class ManterIncidenteService {
 		return true;
 	}
 
-
-	@SuppressWarnings("unchecked")
-	public List<Incidente> busca(String criterio) {
-		if (criterio != null && criterio.length() > 0)
-			return incidenteDAO.buscaPorCriterio(criterio);
-		else
-		{
-			List<Incidente> lista = new ArrayList<Incidente>();
-			lista.add(new Incidente("Busca Inválida", null, "Busca Inválida"));
-			return lista;
-		}		
-	}
-	
 	public List<Incidente> lista ()
 	{
 		return incidenteDAO.listaIncidentes();
-	}
-	
-	@SuppressWarnings("unchecked")
-	public List<Incidente> busca(Date data) {
-		Date dataatual = new Date();
-		if (data != null && dataatual.after(data) || dataatual.equals(data))
-			return incidenteDAO.buscaPorCriterio(data);
-		else
-		{
-			List<Incidente> lista = new ArrayList<Incidente>();
-			lista.add(new Incidente("Busca Inválida", null, "Busca Inválida"));
-			return lista;
-		}		
 	}
 	
 	@SuppressWarnings("unchecked")
