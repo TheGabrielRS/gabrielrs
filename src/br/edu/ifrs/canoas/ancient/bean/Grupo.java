@@ -20,16 +20,16 @@ public class Grupo extends BaseEntity<Long> implements Serializable {
 	
 	private Usuario gerenciador;
 	
-	//@OneToMany
-	//private List<Usuario> tecnicos;
+	@OneToMany
+	private List<Usuario> tecnicos;
 
 
 	
-	public Grupo(String nome, Usuario gerenciador /*List<Usuario> tecnicos*/) {
+	public Grupo(String nome, Usuario gerenciador, List<Usuario> tecnicos) {
 		super();
 		this.nome = nome;
 		this.gerenciador = gerenciador;
-		//this.tecnicos = tecnicos;
+		this.tecnicos = tecnicos;
 	}
 
 
@@ -92,13 +92,13 @@ public class Grupo extends BaseEntity<Long> implements Serializable {
 		this.gerenciador = gerenciador;
 	}
 
-	/*public List<Usuario> getTecnicos() {
+	public List<Usuario> getTecnicos() {
 		return tecnicos;
 	}
 
 	public void setTecnicos(List<Usuario> tecnicos) {
 		this.tecnicos = tecnicos;
-	}*/
+	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;

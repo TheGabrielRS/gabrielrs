@@ -11,11 +11,20 @@
 
 	<ui:define name="content">
 	
-	<p:dataTable var="usu" value="#{manterUsuarioMB.usuarios}">
-		<p:column headerText>
+	<p:outputLabel for="grupo"
+					value="Grupo:" />
+	<p:selectOneMenu id="grupo" value="#{grupoMB.grupo}">
+		<f:selectItems var="grupo" value="#{grupoMB.grupos}" itemLabel="#{grupo.nome}" itemValue="#{grupo}"/>
+	</p:selectOneMenu>
+	
+	
+	<p:dataTable style="width: 50%" var="usu" value="#{manterUsuarioMB.usuarios}">
+		<p:column headerText="Nome" filterBy="#{usu.nome}" filterMatchMode="contains">
 			<h:outputText value="#{usu.nome}" />
 		</p:column>
-	
+		<p:column headerText="Opções">
+			<p:commandButton value="Adicionar ao grupo" action="#{}" />
+		</p:column>
 	</p:dataTable>
 		
 	
