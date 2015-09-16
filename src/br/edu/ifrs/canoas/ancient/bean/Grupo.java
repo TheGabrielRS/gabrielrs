@@ -20,17 +20,20 @@ public class Grupo extends BaseEntity<Long> implements Serializable {
 	
 	private Usuario gerenciador;
 	
-	@OneToMany
-	private List<Usuario> tecnicos;
+	//@OneToMany
+	//private List<Usuario> tecnicos;
 
 
 	
-	public Grupo(String nome, Usuario gerenciador, List<Usuario> tecnicos) {
+	public Grupo(String nome, Usuario gerenciador /*List<Usuario> tecnicos*/) {
 		super();
 		this.nome = nome;
 		this.gerenciador = gerenciador;
-		this.tecnicos = tecnicos;
+		//this.tecnicos = tecnicos;
 	}
+
+
+	
 
 
 	@Override
@@ -39,10 +42,8 @@ public class Grupo extends BaseEntity<Long> implements Serializable {
 		int result = super.hashCode();
 		result = prime * result + ((gerenciador == null) ? 0 : gerenciador.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((tecnicos == null) ? 0 : tecnicos.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -63,13 +64,11 @@ public class Grupo extends BaseEntity<Long> implements Serializable {
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
-		if (tecnicos == null) {
-			if (other.tecnicos != null)
-				return false;
-		} else if (!tecnicos.equals(other.tecnicos))
-			return false;
 		return true;
 	}
+
+
+
 
 
 	public Grupo()
@@ -93,13 +92,13 @@ public class Grupo extends BaseEntity<Long> implements Serializable {
 		this.gerenciador = gerenciador;
 	}
 
-	public List<Usuario> getTecnicos() {
+	/*public List<Usuario> getTecnicos() {
 		return tecnicos;
 	}
 
 	public void setTecnicos(List<Usuario> tecnicos) {
 		this.tecnicos = tecnicos;
-	}
+	}*/
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;

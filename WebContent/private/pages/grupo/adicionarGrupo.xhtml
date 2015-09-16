@@ -23,11 +23,7 @@
 					<f:selectItems var="gerenciador" value="#{manterUsuarioMB.usuarios}" itemLabel="#{gerenciador.nome}" itemValue="#{gerenciador}" />
 				</p:selectOneMenu>
 				
-				<p:outputLabel for="tecnicos" value="Tecnicos: "/>
-				<p:selectManyCheckbox id="tecnicos" value="#{grupoMB.grupo.tecnicos}" converter="conversor">
-					<f:selectItems var="tecnico" value="#{manterUsuarioMB.usuarios}" itemLabel="#{tecnico.nome}" itemValue="#{tecnico}"/>
-				</p:selectManyCheckbox>  
-				
+			
 				<p:commandButton value="Salvar grupo" action="#{grupoMB.salva}" ajax="false" required="true" />
 			</h:panelGrid>
 		</p:panel>
