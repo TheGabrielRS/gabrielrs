@@ -12,7 +12,7 @@ import br.edu.ifrs.canoas.ancient.bean.BaseEntity;
 import br.edu.ifrs.canoas.ancient.bean.Grupo;
 
 @Stateless
-public class GrupoService extends BaseEntity<Long> implements Serializable {
+public class GrupoService {
 	
 	@Inject
 	private GrupoDAO grupoDAO;

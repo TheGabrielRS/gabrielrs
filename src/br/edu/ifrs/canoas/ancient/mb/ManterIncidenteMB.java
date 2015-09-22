@@ -53,7 +53,31 @@ public class ManterIncidenteMB implements Serializable{
 		this.incidentesFiltrados = incidentesFiltrados;
 	}
 	
-    public void cancelarEdicao (RowEditEvent event) {
+	public void onRowEdit (RowEditEvent event)
+	{
+		FacesMessage msg = new FacesMessage("Incidente editado");
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
+	
+	public void onRowCancel (RowEditEvent event)
+	{
+		FacesMessage msg = new FacesMessage("Edição Cancelada");
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
+	
+	public void onCellEdit (CellEditEvent event)
+	{
+		Object oldValue = event.getOldValue();
+		Object newValue = event.getNewValue();
+		
+		if(newValue != null && !newValue.equals(oldValue))
+		{
+			FacesMessage msg = new FacesMessage("Informação Editada");
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+		}
+	}
+	
+   /* public void cancelarEdicao (RowEditEvent event) {
         FacesMessage msg = new FacesMessage("Edit Cancelled");
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
@@ -61,7 +85,7 @@ public class ManterIncidenteMB implements Serializable{
 	public void editarIncidente(CellEditEvent edicao)
 	{
 		incidenteService.editarIncidente((Incidente) edicao.getNewValue(),(Incidente) edicao.getOldValue());
-	}
+	}*/
 	
 	public void lista (){
 		setIncidentes(incidenteService.lista());
