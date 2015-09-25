@@ -8,6 +8,7 @@ import javax.annotation.PreDestroy;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -33,9 +34,18 @@ public class ManterIncidenteMB implements Serializable{
 	private List<Incidente> incidentes;
 	private List<Incidente> incidentesFiltrados;
 	
+	@ManagedProperty(value = "#{transfereEntidade}")
+	private TransfereEntidade transfereEntidade;
+	
+	
 	@PostConstruct
 	public void init()
 	{
+		if(transfereEntidade != null && transfereEntidade.getObject()!=null && transfereEntidade.getObject() instanceof Incidente)
+		{
+			setIncidente((Incidente)transfereEntidade.getObject());
+			transfereEntidade.setObject(null);
+		}
 		lista();
 	}
 	
@@ -47,7 +57,7 @@ public class ManterIncidenteMB implements Serializable{
 	
 	public String editar(Incidente inc)
 	{
-		setIncidente(inc);
+		transfereEntidade.setObject(inc);
 		return "/private/pages/incidente/editarIncidente?faces-redirect=true";
 	}
 	

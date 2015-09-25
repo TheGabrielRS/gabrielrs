@@ -8,6 +8,7 @@
 	template="/public/templates/template.xhtml">
 
 	<ui:define name="metadata">
+		<f:event listener="#{transfereEntidade.setObject}" type="preRenderView"></f:event>
 	</ui:define>
 
 	<ui:define name="content">
@@ -16,33 +17,22 @@
 	<h:form id="form">
 		<p:growl id="msgs" showDetail="true" />
 		<p:panel>
-			 <p:dataTable var="inc" value="#{manterIncidenteMB.incidentes}"  editable="true" editmode="cell" sortMode="multiple"  selection="#{manterIncidenteMB.incidentes}" >
+			 <p:dataTable var="inc" value="#{manterIncidenteMB.incidentes}" selection="#{manterIncidenteMB.incidentes}" >
 
-				 <f:ajax event="rowEdit" listener="#{manterIncidenteMB.onRowEdit}" update=":form:msgs" />
-				<f:ajax event="rowEditCancel" listener="#{manterIncidenteMB.onRowCancel}" update=":form:msgs"/> 
+ 
 			
 
 				<p:column headerText="Titulo" filterBy="#{inc.titulo}" filterMatchMode="contains">
-						<p:cellEditor>
-							<f:facet name="output"><h:outputText value="#{inc.titulo}" /></f:facet>
-							<f:facet name="input"><p:inputText id="tituloInput" value="#{inc.titulo}"/></f:facet>
-						</p:cellEditor>
+						<h:outputText value="#{inc.titulo}" />
 				</p:column>
 	
 	
 				<p:column headerText="Data do Incidente" filterBy="#{inc.data.toString().split(' ')[0]}" filterMatchMode="contains" >
-						<p:cellEditor>
-							<f:facet name="output"><h:outputText value="#{inc.data.toString().split(' ')[0]}"  /></f:facet>
-							<f:facet name="input"><p:calendar value="#{inc.data}"  /></f:facet>
-						</p:cellEditor>
-						
+						<h:outputText value="#{inc.data.toString().split(' ')[0]}"  />
 				</p:column>
 				
 				<p:column headerText="Descrição" filterBy="#{inc.descricao}" filterMatchMode="contains" >
-					<p:cellEditor>
-						<f:facet name="output"><h:outputText  value="#{inc.descricao}" /></f:facet>
-						<f:facet name="input"><p:inputText value="#{inc.descricao}" /></f:facet>
-					</p:cellEditor>
+						<h:outputText  value="#{inc.descricao}" />
 				</p:column>
 				
 				<p:column headerText="Editar">
