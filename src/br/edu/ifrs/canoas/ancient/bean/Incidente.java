@@ -9,6 +9,7 @@ import br.edu.ifrs.canoas.ancient.bean.Equipamento;
 import br.edu.ifrs.canoas.ancient.bean.Grupo;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
@@ -28,10 +29,10 @@ public class Incidente extends BaseEntity<Long> implements Serializable {
 	@NotNull
 	private String descricao;
 	
-	@OneToOne
+	@ManyToOne
 	private Grupo grupo;
 	
-	@OneToOne
+	@ManyToOne
 	private Local local;
 	
 	//private Requerente requerente;

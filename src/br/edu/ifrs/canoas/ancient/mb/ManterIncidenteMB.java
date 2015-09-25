@@ -1,18 +1,16 @@
 package br.edu.ifrs.canoas.ancient.mb;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.Id;
 
 import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
@@ -21,7 +19,7 @@ import br.edu.ifrs.canoas.ancient.bean.Incidente;
 import br.edu.ifrs.canoas.ancient.control.service.ManterIncidenteService;
 
 @Named
-@RequestScoped
+@SessionScoped
 public class ManterIncidenteMB implements Serializable{
 
 	private static final long serialVersionUID = -5481426310511396058L;
@@ -32,9 +30,6 @@ public class ManterIncidenteMB implements Serializable{
 	@EJB
 	private ManterIncidenteService incidenteService;
 	
-	private String criterio = "";
-	private Date criteriodata;
-	
 	private List<Incidente> incidentes;
 	private List<Incidente> incidentesFiltrados;
 	
@@ -42,6 +37,23 @@ public class ManterIncidenteMB implements Serializable{
 	public void init()
 	{
 		lista();
+	}
+	
+	@PreDestroy
+	public void finish()
+	{
+		System.out.println("Destruiu ManterIncidenteMB");
+	}
+	
+	public String editar(Incidente inc)
+	{
+		setIncidente(inc);
+		return "/private/pages/incidente/editarIncidente?faces-redirect=true";
+	}
+	
+	public void salvarEdicao()
+	{
+		incidenteService.editarIncidente(incidente);
 	}
 	
 	
@@ -77,16 +89,6 @@ public class ManterIncidenteMB implements Serializable{
 		}
 	}
 	
-   /* public void cancelarEdicao (RowEditEvent event) {
-        FacesMessage msg = new FacesMessage("Edit Cancelled");
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
-	
-	public void editarIncidente(CellEditEvent edicao)
-	{
-		incidenteService.editarIncidente((Incidente) edicao.getNewValue(),(Incidente) edicao.getOldValue());
-	}*/
-	
 	public void lista (){
 		setIncidentes(incidenteService.lista());
 	}
@@ -106,17 +108,7 @@ public class ManterIncidenteMB implements Serializable{
 	public void setIncidentes(List<Incidente> incidentes) {
 		this.incidentes = incidentes;
 	}
-	
-	public String getCriterio()
-	{
-		return this.criterio;
-	}
-	
-	public void setCriterio(String criterio)
-	{
-		this.criterio = criterio;
-	}
-	
+
 	public void setIncidente (Incidente incidente)
 	{
 		this.incidente = incidente;
@@ -131,13 +123,4 @@ public class ManterIncidenteMB implements Serializable{
 	{
 		return true;
 	}
-
-	public Date getCriteriodata() {
-		return criteriodata;
-	}
-
-	public void setCriteriodata(Date criteriodata) {
-		this.criteriodata = criteriodata;
-	}
-	
 }

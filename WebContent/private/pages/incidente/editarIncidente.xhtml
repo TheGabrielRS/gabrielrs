@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/public/templates/template.xhtml">
+
+	<ui:define name="metadata"></ui:define>
+
+	<ui:define name="content">
+		<p:panel id="principal" header="Editar Incidente" style="border-color: white">
+
+			<h:panelGrid columns="2">
+
+				<p:outputLabel for="titulo"
+					value="#{msg['registrarIncidente.label.titulo']}" />
+				<p:inputText id="titulo" value="#{manterIncidenteMB.incidente.titulo}"
+					required="true" />
+
+				<p:outputLabel for="descricao"
+					value="#{msg['registrarIncidente.label.descricao']}" />
+				<p:inputTextarea id="descricao" rows="6" cols="33" value="#{manterIncidenteMB.incidente.descricao}" required="true" />
+
+				<p:outputLabel for="data"
+					value="#{msg['registrarIncidente.label.data']}" />
+				<p:calendar id="data" value="#{manterIncidenteMB.incidente.data}"
+					required="true" />
+					
+				<!-- <p:outputLabel for="grupo"
+					value="Grupo:" />
+				<p:selectOneMenu id="grupo" value="#{cadastrarIncidenteMB.incidente.grupo}" converter="conversor">
+					<f:selectItems var="grupo" value="#{grupoMB.grupos}" itemLabel="#{grupo.nome}" itemValue="#{grupo}"/>
+				</p:selectOneMenu>  -->
+				
+				<p:outputLabel for="local" value="Local: "/>
+				<p:selectOneMenu id="local" value="#{manterIncidenteMB.incidente.local}" converter="conversor">
+					<f:selectItems var="local" value="#{manterLocalMB.locais}" itemLabel="#{local.nome}" itemValue="#{local}"/>
+				</p:selectOneMenu>
+					
+					
+					
+				<p:commandButton value="#{msg['registrarIncidente.button.registra']}"
+					action="#{manterIncidenteMB.salvarEdicao}" ajax="false"
+					style="border: none;" />
+
+				<p:commandButton value="#{msg['button.back']}" action="login"
+					ajax="false" style="border: none;" immediate="true" />
+			</h:panelGrid>
+		</p:panel>
+
+	</ui:define>
+</ui:composition>
+	
+	

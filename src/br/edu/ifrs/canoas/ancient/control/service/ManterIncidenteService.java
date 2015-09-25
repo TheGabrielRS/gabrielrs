@@ -19,10 +19,9 @@ public class ManterIncidenteService {
 	@Inject
 	private IncidenteDAO incidenteDAO;
 	
-	public void editarIncidente(Incidente incidenteNovo, Incidente incidenteAtual)
+	public void editarIncidente(Incidente inc)
 	{
-		if(incidenteNovo != null && !incidenteNovo.equals(incidenteAtual))
-			incidenteDAO.editar(incidenteNovo);
+		incidenteDAO.atualiza(inc);
 	}
 	
 	
