@@ -47,4 +47,8 @@
   <welcome-file>/index.xhtml</welcome-file>
   <welcome-file>/index.jsp</welcome-file>
  </welcome-file-list>
+ <!-- Initializing ManageBean -->
+<listener>
+<listener-class>br.edu.ifrs.canoas.ancient.mb.ListenerTransfere</listener-class>
+</listener>
 </web-app>

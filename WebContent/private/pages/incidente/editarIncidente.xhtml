@@ -16,26 +16,26 @@
 
 				<p:outputLabel for="titulo"
 					value="#{msg['registrarIncidente.label.titulo']}" />
-				<p:inputText id="titulo" value="#{manterIncidenteMB.incidente.titulo}"
+				<p:inputText id="titulo" value="#{transfereEntidadeMB.object.titulo}"
 					required="true" />
 
 				<p:outputLabel for="descricao"
 					value="#{msg['registrarIncidente.label.descricao']}" />
-				<p:inputTextarea id="descricao" rows="6" cols="33" value="#{manterIncidenteMB.incidente.descricao}" required="true" />
+				<p:inputTextarea id="descricao" rows="6" cols="33" value="#{{transfereEntidadeMB.object.descricao}" required="true" />
 
 				<p:outputLabel for="data"
 					value="#{msg['registrarIncidente.label.data']}" />
-				<p:calendar id="data" value="#{manterIncidenteMB.incidente.data}"
+				<p:calendar id="data" value="#{{transfereEntidadeMB.object.data}"
 					required="true" />
 					
 				 <p:outputLabel for="grupo"
 					value="Grupo:" />
-				<p:selectOneMenu id="grupo" value="#{cadastrarIncidenteMB.incidente.grupo}" converter="conversor">
+				<p:selectOneMenu id="grupo" value="#{transfereEntidadeMB.object.grupo}" converter="conversor">
 					<f:selectItems var="grupo" value="#{grupoMB.grupos}" itemLabel="#{grupo.nome}" itemValue="#{grupo}"/>
-				</p:selectOneMenu>  -->
+				</p:selectOneMenu>
 				
 				<p:outputLabel for="local" value="Local: "/>
-				<p:selectOneMenu id="local" value="#{manterIncidenteMB.incidente.local}" converter="conversor">
+				<p:selectOneMenu id="local" value="#{{transfereEntidadeMB.object.local}" converter="conversor">
 					<f:selectItems var="local" value="#{manterLocalMB.locais}" itemLabel="#{local.nome}" itemValue="#{local}"/>
 				</p:selectOneMenu>
 					
