@@ -8,6 +8,10 @@ import javax.annotation.PreDestroy;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
+<<<<<<< HEAD
+=======
+import javax.faces.bean.ManagedProperty;
+>>>>>>> parent of 79bbdda... Commit para comparar
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -33,6 +37,13 @@ public class ManterIncidenteMB implements Serializable{
 	private List<Incidente> incidentes;
 	private List<Incidente> incidentesFiltrados;
 	
+<<<<<<< HEAD
+=======
+	@ManagedProperty(value = "#{transfereEntidade}")
+	private TransfereEntidade transfereEntidade;
+	
+	
+>>>>>>> parent of 79bbdda... Commit para comparar
 	@PostConstruct
 	public void init()
 	{
@@ -47,7 +58,11 @@ public class ManterIncidenteMB implements Serializable{
 	
 	public String editar(Incidente inc)
 	{
+<<<<<<< HEAD
 		setIncidente(inc);
+=======
+		transfereEntidade.setObject(inc);
+>>>>>>> parent of 79bbdda... Commit para comparar
 		return "/private/pages/incidente/editarIncidente?faces-redirect=true";
 	}
 	
