@@ -6,19 +6,20 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.ejb.EJB;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.primefaces.event.CellEditEvent;
+import org.primefaces.event.RowEditEvent;
 
 import br.edu.ifrs.canoas.ancient.bean.Incidente;
 import br.edu.ifrs.canoas.ancient.control.service.ManterIncidenteService;
 
 @Named
-@ViewScoped
+@SessionScoped
 public class ManterIncidenteMB implements Serializable{
 
 	private static final long serialVersionUID = -5481426310511396058L;
@@ -32,18 +33,9 @@ public class ManterIncidenteMB implements Serializable{
 	private List<Incidente> incidentes;
 	private List<Incidente> incidentesFiltrados;
 	
-	@ManagedProperty(value = "#{transfereEntidade}")
-	private TransfereEntidadeMB transfereEntidade;
-	
-	
 	@PostConstruct
 	public void init()
 	{
-		if(transfereEntidade != null && transfereEntidade.getObject()!=null && transfereEntidade.getObject() instanceof Incidente)
-		{
-			setIncidente((Incidente)transfereEntidade.getObject());
-			transfereEntidade.setObject(null);
-		}
 		lista();
 	}
 	
@@ -56,7 +48,6 @@ public class ManterIncidenteMB implements Serializable{
 	public String editar(Incidente inc)
 	{
 		setIncidente(inc);
-		transfereEntidade.setObject(this.incidente);
 		return "/private/pages/incidente/editarIncidente?faces-redirect=true";
 	}
 	
@@ -72,6 +63,30 @@ public class ManterIncidenteMB implements Serializable{
 
 	public void setIncidentesFiltrados(List<Incidente> incidentesFiltrados) {
 		this.incidentesFiltrados = incidentesFiltrados;
+	}
+	
+	public void onRowEdit (RowEditEvent event)
+	{
+		FacesMessage msg = new FacesMessage("Incidente editado");
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
+	
+	public void onRowCancel (RowEditEvent event)
+	{
+		FacesMessage msg = new FacesMessage("Edição Cancelada");
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
+	
+	public void onCellEdit (CellEditEvent event)
+	{
+		Object oldValue = event.getOldValue();
+		Object newValue = event.getNewValue();
+		
+		if(newValue != null && !newValue.equals(oldValue))
+		{
+			FacesMessage msg = new FacesMessage("Informação Editada");
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+		}
 	}
 	
 	public void lista (){

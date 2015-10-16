@@ -8,7 +8,6 @@ import javax.inject.Named;
 
 import br.edu.ifrs.canoas.ancient.bean.Usuario;
 import br.edu.ifrs.canoas.ancient.control.service.GerenciarLoginService;
-import br.edu.ifrs.canoas.ancient.mb.TransfereEntidadeMB;
 
 @SessionScoped
 @Named
@@ -17,8 +16,6 @@ public class GerenciarLoginMB implements Serializable  {
 	@Inject
 	private Usuario usuario;
 
-	private TransfereEntidadeMB transfereEntidade;
-	
 	@Inject
 	private GerenciarLoginService loginService;
 	
@@ -29,7 +26,6 @@ public class GerenciarLoginMB implements Serializable  {
 
 	public String login() {
 		usuario = loginService.login(usuario);
-		transfereEntidade = new TransfereEntidadeMB();
 		return isLogado()?pagWelcome:pagLogin;
 	}
 
