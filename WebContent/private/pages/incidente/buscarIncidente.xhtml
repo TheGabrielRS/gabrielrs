@@ -13,45 +13,31 @@
 	<ui:define name="content">
 	
 	
-	<h:form id="form">
-		<p:growl id="msgs" showDetail="true" />
-		<p:panel>
-			 <p:dataTable var="inc" value="#{manterIncidenteMB.incidentes}"  editable="true" editmode="cell" sortMode="multiple"  selection="#{manterIncidenteMB.incidentes}" >
-
-				 <f:ajax event="rowEdit" listener="#{manterIncidenteMB.onRowEdit}" update=":form:msgs" />
-				<f:ajax event="rowEditCancel" listener="#{manterIncidenteMB.onRowCancel}" update=":form:msgs"/> 
-			
-
-				<p:column headerText="Titulo" filterBy="#{inc.titulo}" filterMatchMode="contains">
-						<p:cellEditor>
-							<f:facet name="output"><h:outputText value="#{inc.titulo}" /></f:facet>
-							<f:facet name="input"><p:inputText id="tituloInput" value="#{inc.titulo}"/></f:facet>
-						</p:cellEditor>
-				</p:column>
+		<h:form id="form">
+			<p:growl id="msgs" showDetail="true" />
+			<p:panel>
+				 <p:dataTable var="inc" value="#{manterIncidenteMB.incidentes}" sortMode="multiple"  selection="#{manterIncidenteMB.incidentes}" >
 	
-	
-				<p:column headerText="Data do Incidente" filterBy="#{inc.data.toString().split(' ')[0]}" filterMatchMode="contains" >
-						<p:cellEditor>
-							<f:facet name="output"><h:outputText value="#{inc.data.toString().split(' ')[0]}"  /></f:facet>
-							<f:facet name="input"><p:calendar value="#{inc.data}"  /></f:facet>
-						</p:cellEditor>
-						
-				</p:column>
+					<p:column headerText="Titulo" filterBy="#{inc.titulo}" filterMatchMode="contains">
+							<h:outputText value="#{inc.titulo}" />
+					</p:column>
+		
+		
+					<p:column headerText="Data do Incidente" filterBy="#{inc.data.toString().split(' ')[0]}" filterMatchMode="contains" >
+							<h:outputText value="#{inc.data.toString().split(' ')[0]}"  />
+					</p:column>
+					
+					<p:column headerText="Descrição" filterBy="#{inc.descricao}" filterMatchMode="contains" >
+						<h:outputText  value="#{inc.descricao}" />
+					</p:column>
+					
+					<p:column headerText="Editar">
+						<p:commandButton value="Editar" action="#{manterIncidenteMB.editar(inc)}" />
+					</p:column>
 				
-				<p:column headerText="Descrição" filterBy="#{inc.descricao}" filterMatchMode="contains" >
-					<p:cellEditor>
-						<f:facet name="output"><h:outputText  value="#{inc.descricao}" /></f:facet>
-						<f:facet name="input"><p:inputText value="#{inc.descricao}" /></f:facet>
-					</p:cellEditor>
-				</p:column>
-				
-				<p:column headerText="Editar">
-					<p:commandButton value="Editar" action="#{manterIncidenteMB.editar(inc)}" />
-				</p:column>
-			
-			</p:dataTable>	
-		</p:panel>
-	</h:form>
+				</p:dataTable>	
+			</p:panel>
+		</h:form>
 	</ui:define>
 
 </ui:composition>

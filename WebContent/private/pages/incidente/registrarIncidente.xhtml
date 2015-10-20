@@ -28,11 +28,11 @@
 				<p:calendar id="data" value="#{cadastrarIncidenteMB.incidente.data}"
 					required="true" />
 					
-				<!-- <p:outputLabel for="grupo"
+				<p:outputLabel for="grupo"
 					value="Grupo:" />
 				<p:selectOneMenu id="grupo" value="#{cadastrarIncidenteMB.incidente.grupo}" converter="conversor">
 					<f:selectItems var="grupo" value="#{grupoMB.grupos}" itemLabel="#{grupo.nome}" itemValue="#{grupo}"/>
-				</p:selectOneMenu>  -->
+				</p:selectOneMenu>
 				
 				<p:outputLabel for="local" value="Local: "/>
 				<p:selectOneMenu id="local" value="#{cadastrarIncidenteMB.incidente.local}" converter="conversor">
@@ -44,9 +44,6 @@
 				<p:commandButton value="#{msg['registrarIncidente.button.registra']}"
 					action="#{cadastrarIncidenteMB.salva}" ajax="false"
 					style="border: none;" />
-
-				<p:commandButton value="#{msg['button.back']}" action="login"
-					ajax="false" style="border: none;" immediate="true" />
 			</h:panelGrid>
 		</p:panel>
 

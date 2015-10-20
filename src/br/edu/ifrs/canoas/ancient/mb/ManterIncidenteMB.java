@@ -8,13 +8,6 @@ import javax.annotation.PreDestroy;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-import javax.faces.bean.ManagedProperty;
->>>>>>> parent of 79bbdda... Commit para comparar
-=======
->>>>>>> parent of 956545a... Ideia do André, só tá gerando erro
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -40,16 +33,6 @@ public class ManterIncidenteMB implements Serializable{
 	private List<Incidente> incidentes;
 	private List<Incidente> incidentesFiltrados;
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-	@ManagedProperty(value = "#{transfereEntidade}")
-	private TransfereEntidade transfereEntidade;
-	
-	
->>>>>>> parent of 79bbdda... Commit para comparar
-=======
->>>>>>> parent of 956545a... Ideia do André, só tá gerando erro
 	@PostConstruct
 	public void init()
 	{
@@ -64,15 +47,7 @@ public class ManterIncidenteMB implements Serializable{
 	
 	public String editar(Incidente inc)
 	{
-<<<<<<< HEAD
-<<<<<<< HEAD
 		setIncidente(inc);
-=======
-		transfereEntidade.setObject(inc);
->>>>>>> parent of 79bbdda... Commit para comparar
-=======
-		setIncidente(inc);
->>>>>>> parent of 956545a... Ideia do André, só tá gerando erro
 		return "/private/pages/incidente/editarIncidente?faces-redirect=true";
 	}
 	
