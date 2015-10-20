@@ -12,9 +12,6 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.primefaces.event.CellEditEvent;
-import org.primefaces.event.RowEditEvent;
-
 import br.edu.ifrs.canoas.ancient.bean.Incidente;
 import br.edu.ifrs.canoas.ancient.control.service.ManterIncidenteService;
 
@@ -54,6 +51,7 @@ public class ManterIncidenteMB implements Serializable{
 	public void salvarEdicao()
 	{
 		incidenteService.editarIncidente(incidente);
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Sucesso", "Incidente editado com sucesso!"));
 	}
 	
 	
@@ -63,30 +61,6 @@ public class ManterIncidenteMB implements Serializable{
 
 	public void setIncidentesFiltrados(List<Incidente> incidentesFiltrados) {
 		this.incidentesFiltrados = incidentesFiltrados;
-	}
-	
-	public void onRowEdit (RowEditEvent event)
-	{
-		FacesMessage msg = new FacesMessage("Incidente editado");
-		FacesContext.getCurrentInstance().addMessage(null, msg);
-	}
-	
-	public void onRowCancel (RowEditEvent event)
-	{
-		FacesMessage msg = new FacesMessage("Edição Cancelada");
-		FacesContext.getCurrentInstance().addMessage(null, msg);
-	}
-	
-	public void onCellEdit (CellEditEvent event)
-	{
-		Object oldValue = event.getOldValue();
-		Object newValue = event.getNewValue();
-		
-		if(newValue != null && !newValue.equals(oldValue))
-		{
-			FacesMessage msg = new FacesMessage("Informação Editada");
-			FacesContext.getCurrentInstance().addMessage(null, msg);
-		}
 	}
 	
 	public void lista (){

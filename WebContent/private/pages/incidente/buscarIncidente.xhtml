@@ -16,7 +16,11 @@
 		<h:form id="form">
 			<p:growl id="msgs" showDetail="true" />
 			<p:panel>
-				 <p:dataTable var="inc" value="#{manterIncidenteMB.incidentes}" sortMode="multiple"  selection="#{manterIncidenteMB.incidentes}" >
+				 <p:dataTable var="inc" value="#{manterIncidenteMB.incidentes}" sortMode="multiple"  selection="#{manterIncidenteMB.incidentes}"
+				 		 rows="5"
+				 		 paginator="true"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15" >
 	
 					<p:column headerText="Titulo" filterBy="#{inc.titulo}" filterMatchMode="contains">
 							<h:outputText value="#{inc.titulo}" />
