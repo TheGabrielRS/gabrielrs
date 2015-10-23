@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/public/templates/template.xhtml">
+
+	<ui:define name="metadata">
+	</ui:define>
+
+	<ui:define name="content">
+	
+	
+		<h:form id="form">
+			<p:growl id="msgs" showDetail="true" />
+			<p:panel>
+				 <p:dataTable var="local" value="#{manterLocalMB.locais}" sortMode="multiple"  selection="#{manterIncidenteMB.incidentes}"
+				 		 rows="5"
+				 		 paginator="true"
+                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15" >
+	
+					<p:column headerText="Nome" filterBy="#{local.nome}" filterMatchMode="contains">
+							<h:outputText value="#{local.nome}" />
+					</p:column>
+		
+		
+					<p:column headerText="Endereço" filterBy="#{local.endereco}" filterMatchMode="contains" >
+							<h:outputText value="#{local.endereco}"  />
+					</p:column>
+					
+					<p:column headerText="Editar">
+						<p:commandButton value="Editar" action="#{manterLocalMB.editar(local)}" />
+					</p:column>
+				
+				</p:dataTable>	
+			</p:panel>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

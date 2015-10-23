@@ -22,6 +22,11 @@ public class ManterLocalService {
 		}
 		
 	}
+	
+	public void editar(Local local)
+	{
+		localDAO.atualiza(local);
+	}
 
 	public LocalDAO getLocalDAO() {
 		return localDAO;

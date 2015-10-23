@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -15,7 +15,7 @@ import br.edu.ifrs.canoas.ancient.bean.Local;
 import br.edu.ifrs.canoas.ancient.control.service.ManterLocalService;
 
 @Named
-@RequestScoped
+@SessionScoped
 public class ManterLocalMB implements Serializable {
 
 	/**
@@ -49,6 +49,16 @@ public class ManterLocalMB implements Serializable {
 		lista();
 	}
 	
+	public String editar(Local loc)
+	{
+		setLocal(loc);
+		return "/private/pages/local/editarLocal?faces-redirect=true";
+	}
+	
+	public void salvarEdicao()
+	{
+		localService.editar(local);
+	}
 	
 	public void lista()
 	{

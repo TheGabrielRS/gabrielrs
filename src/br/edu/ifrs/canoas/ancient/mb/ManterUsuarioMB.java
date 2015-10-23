@@ -43,6 +43,12 @@ public class ManterUsuarioMB implements Serializable {
 		lista();
 	}
 	
+	public String editar(Usuario usu)
+	{
+		setUsuario(usu);
+		return "/private/pages/usuario/editarUsuario?faces-redirect=true";
+	}
+	
 	public void busca() {
 		usuarios = usuarioService.busca(criterio);
 		System.out.println(usuarios.size());

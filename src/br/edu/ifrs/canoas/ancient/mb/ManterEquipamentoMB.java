@@ -25,6 +25,17 @@ public class ManterEquipamentoMB implements Serializable {
 	@Inject
 	private ManterEquipamentoService equipamentoService;
 	
+	public String editar (Equipamento equ)
+	{
+		setEquipamento(equ);
+		return "/private/pages/equipamento/editarEquipamento?faces-redirect=true";
+	}
+	
+	public void salvaEdicao ()
+	{
+		
+	}
+	
 	public void listaTodos()
 	{
 		setEquipamentos(equipamentoService.listaTodos());
