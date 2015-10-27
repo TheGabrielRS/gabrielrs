@@ -7,12 +7,12 @@ import java.util.List;
 import br.edu.ifrs.canoas.ancient.bean.Equipamento;
 import br.edu.ifrs.canoas.ancient.control.service.ManterEquipamentoService;
 
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 @Named
-@RequestScoped
+@SessionScoped
 public class ManterEquipamentoMB implements Serializable {
 
 	private static final long serialVersionUID = -7191024656989095264L;
@@ -33,7 +33,7 @@ public class ManterEquipamentoMB implements Serializable {
 	
 	public void salvaEdicao ()
 	{
-		
+		equipamentoService.edita(equipamento);
 	}
 	
 	public void listaTodos()
@@ -46,10 +46,6 @@ public class ManterEquipamentoMB implements Serializable {
 		equipamentoService.remove(this.equipamento);
 	}
 	
-	public void edita()
-	{
-		equipamentoService.edita(this.equipamento);
-	}
 	
 	public void salva()
 	{

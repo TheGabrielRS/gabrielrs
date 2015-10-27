@@ -24,15 +24,15 @@
 					<p:menuitem value="Buscar Incidente" icon="fa fa-search" url="/private/pages/incidente/buscarIncidente.xhtml"/>
 				</p:submenu>
 				<p:submenu label="Grupos">
-					<p:menuitem value="Criar Grupo" icon="fa fa-save" url="/private/pages/grupo/adicionarGrupo.xhtml"/>
+					<p:menuitem rendered="#{gerenciarLoginMB.usuario.nivel}" value="Criar Grupo" icon="fa fa-save" url="/private/pages/grupo/adicionarGrupo.xhtml"/>
 					<p:menuitem value="Manter grupo" url="/private/pages/grupo/manterGrupo.xhtml"/>
 				</p:submenu>
 				<p:submenu label="Locais">
-					<p:menuitem value="Adicionar Local" icon="fa fa-save" url="/private/pages/local/adicionarLocal.xhtml"/>
+					<p:menuitem rendered="#{gerenciarLoginMB.usuario.nivel}" value="Adicionar Local" icon="fa fa-save" url="/private/pages/local/adicionarLocal.xhtml"/>
 					<p:menuitem value="Buscar Local" icon="fa fa-search" url="/private/pages/local/buscarLocal.xhtml"/>
 				</p:submenu>
 				<p:submenu label="Equipamentos">
-					<p:menuitem value="Adicionar Equipamento" icon="fa fa-save" url="/private/pages/equipamento/cadastrarEquipamento.xhtml" />
+					<p:menuitem rendered="#{gerenciarLoginMB.usuario.nivel}" value="Adicionar Equipamento" icon="fa fa-save" url="/private/pages/equipamento/cadastrarEquipamento.xhtml" />
 				</p:submenu>
 			</p:panelMenu>
 			<div></div>

@@ -33,6 +33,11 @@ public class GrupoService {
 		}
 	}
 	
+	public void editarGrupo(Grupo grupo)
+	{
+		grupoDAO.atualiza(grupo);
+	}
+	
 	
 	
 }

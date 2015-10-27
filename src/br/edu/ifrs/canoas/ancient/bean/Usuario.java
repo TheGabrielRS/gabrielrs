@@ -29,6 +29,17 @@ public class Usuario extends BaseEntity<Long> implements Serializable {
 	@NotNull 
 	private String sobrenome;
 	
+	@NotNull
+	private boolean nivel;
+	
+	public boolean isNivel() {
+		return nivel;
+	}
+
+	public void setNivel(boolean nivel) {
+		this.nivel = nivel;
+	}
+
 	public Usuario() {
 		super();
 	}

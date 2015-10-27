@@ -6,19 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.edu.ifrs.canoas.ancient.bean.Grupo;
-import br.edu.ifrs.canoas.ancient.bean.Incidente;
 import br.edu.ifrs.canoas.ancient.control.service.GrupoService;
 
 @Named
-@RequestScoped
-public class GrupoMB implements Serializable {
+@SessionScoped
+public class ManterGrupoMB implements Serializable {
 
 	/**
 	 * 
@@ -55,6 +54,16 @@ public class GrupoMB implements Serializable {
 		}	
 	}
 	
+	public String editar(Grupo grupo)
+	{
+		setGrupo(grupo);
+		return "/private/pages/grupo/editarGrupo?faces-redirect=true";
+	}
+	
+	public void salvaEdicao()
+	{
+		grupoService.editarGrupo(grupo);
+	}
 	
 	public List<Grupo> getGrupos() {
 		return grupos;
