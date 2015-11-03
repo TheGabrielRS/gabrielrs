@@ -29,6 +29,9 @@ public class Incidente extends BaseEntity<Long> implements Serializable {
 	@NotNull
 	private String descricao;
 	
+	@NotNull
+	private boolean status;
+	
 	@ManyToOne
 	private Grupo grupo;
 	
