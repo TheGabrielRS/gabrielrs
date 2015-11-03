@@ -25,14 +25,9 @@
 					<p:column headerText="Nome" filterBy="#{grupo.nome}" filterMatchMode="contains">
 							<h:outputText value="#{grupo.nome}" />
 					</p:column>
-		
-		
-					<!-- <p:column headerText="Endereço" filterBy="#{local.endereco}" filterMatchMode="contains" >
-							<h:outputText value="#{local.endereco}"  />
-					</p:column>  -->
 					
 					<p:column headerText="Editar">
-						<p:commandButton value="Editar" action="#{manterGrupoMB.editar(grupo)}" />
+						<p:commandButton rendered="#{gerenciarLoginMB.usuario.nivel}" value="Editar" action="#{manterGrupoMB.editar(grupo)}" />
 					</p:column>
 				
 				</p:dataTable>	

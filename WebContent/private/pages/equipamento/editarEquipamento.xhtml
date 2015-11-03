@@ -12,7 +12,7 @@
 
 	<ui:define name="content">
 	
-	<p:panel header="Adicionar Equipamento" style="border: white">
+	<p:panel rendered="#{gerenciarLoginMB.usuario.nivel}" header="Adicionar Equipamento" style="border: white">
 		<h:panelGrid columns="2">
 			<p:outputLabel for="tombo" value="Patrimônio:"/>
 			<p:inputText id="tombo" value="#{manterEquipamentoMB.equipamento.tombo}" required="true"/>

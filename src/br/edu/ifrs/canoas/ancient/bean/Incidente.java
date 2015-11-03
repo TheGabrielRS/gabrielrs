@@ -37,16 +37,17 @@ public class Incidente extends BaseEntity<Long> implements Serializable {
 	
 	//private Requerente requerente;
 	
-	@OneToMany
-	private List<Equipamento> equipamento;
+	@ManyToOne
+	private Equipamento equipamento;
 
-	public Incidente(String titulo, Date data, String descricao, Grupo grupo, Local local) {
+	public Incidente(String titulo, Date data, String descricao, Grupo grupo, Local local, Equipamento equipamento) {
 		super();
 		this.titulo = titulo;
 		this.data = data;
 		this.descricao = descricao;
 		this.grupo = grupo;
 		this.local = local;
+		this.equipamento= equipamento;
 	}
 
 	public Incidente() {
@@ -97,11 +98,11 @@ public class Incidente extends BaseEntity<Long> implements Serializable {
 		this.local = local;
 	}
 
-	public List<Equipamento> getEquipamento() {
+	public Equipamento getEquipamento() {
 		return equipamento;
 	}
 
-	public void setEquipamento(List<Equipamento> equipamento) {
+	public void setEquipamento(Equipamento equipamento) {
 		this.equipamento = equipamento;
 	}
 

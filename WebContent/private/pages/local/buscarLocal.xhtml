@@ -31,7 +31,7 @@
 							<h:outputText value="#{local.endereco}"  />
 					</p:column>
 					
-					<p:column headerText="Editar">
+					<p:column rendered="#{gerenciarLoginMB.usuario.nivel}" headerText="Editar">
 						<p:commandButton value="Editar" action="#{manterLocalMB.editar(local)}" />
 					</p:column>
 				

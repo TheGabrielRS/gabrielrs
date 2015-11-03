@@ -12,7 +12,7 @@
 
 	<ui:define name="content">
 	
-	<p:panel header="Adicionar Local" style="border: white">
+	<p:panel rendered="#{gerenciarLoginMB.usuario.nivel}" header="Adicionar Local" style="border: white">
 		<h:panelGrid columns="2">
 			<p:outputLabel for="nome" value="Nome: " />
 			<p:inputText id="nome" value="#{manterLocalMB.local.nome}"/>

@@ -37,7 +37,7 @@
 					
 					
 					<p:column headerText="Editar">
-						<p:commandButton value="Editar" action="#{manterGrupoMB.editar(grupo)}" />
+						<p:commandButton rendered="#{gerenciarLoginMB.usuario.nivel}" value="Editar" action="#{manterGrupoMB.editar(grupo)}" />
 					</p:column>
 				
 				</p:dataTable>	
