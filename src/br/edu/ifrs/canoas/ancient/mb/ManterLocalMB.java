@@ -62,7 +62,7 @@ public class ManterLocalMB implements Serializable {
 	
 	public void lista()
 	{
-		setLocais(localService.getLocalDAO().buscaTodos());
+		setLocais(localService.lista());
 	}
 
 	public List<Local> getLocais() {

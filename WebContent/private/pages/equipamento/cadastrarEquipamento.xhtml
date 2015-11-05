@@ -18,14 +18,14 @@
 			<p:inputText id="tombo" value="#{manterEquipamentoMB.equipamento.tombo}" required="true"/>
 			
 			<p:outputLabel for="local" value="Local: "/>
-			<p:selectOneMenu id="local" value="#{manterEquipamentoMB.equipamento.local}" converter="conversor" required="true">
-				<f:selectItems var="local" value="#{manterLocalMB.locais}" itemLabel="#{local.nome}" itemValue="#{local}"/>
-			</p:selectOneMenu>
+				<p:selectOneMenu id="local" value="#{manterEquipamentoMB.equipamento.local}" converter="conversor">
+					<f:selectItems var="local" value="#{manterLocalMB.locais}" itemLabel="#{local.nome}" itemValue="#{local}"/>
+				</p:selectOneMenu>
 			
 			<p:outputLabel for="descricao" value="Descição:" />
 			<p:inputTextarea id="descricao" rows="6" cols="33" value="#{manterEquipamentoMB.equipamento.descricao}" required="true"/>
 			
-			<p:commandButton value="Salvar" action="#{manterEquipamentoMB.salva()}" />
+			<p:commandButton value="Salvar" action="#{manterEquipamentoMB.salva}" />
 		
 		</h:panelGrid>
 	</p:panel>

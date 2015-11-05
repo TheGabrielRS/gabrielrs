@@ -16,9 +16,9 @@ public class ManterEquipamentoService {
 		return equipamentoDAO.buscaTodos();
 	}
 	
-	public void salva(Equipamento e)
+	public void salva(Equipamento equipamento)
 	{
-		equipamentoDAO.insere(e);
+		equipamentoDAO.insere(equipamento);
 	}
 	
 	public void remove(Equipamento e)

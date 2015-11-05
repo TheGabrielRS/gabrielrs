@@ -6,6 +6,7 @@ import br.edu.ifrs.canoas.ancient.bean.Usuario;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
@@ -17,7 +18,7 @@ public class Grupo extends BaseEntity<Long> implements Serializable {
 	@NotNull
 	private String nome;
 	
-	
+	@ManyToOne
 	private Usuario gerenciador;
 	
 	@OneToMany

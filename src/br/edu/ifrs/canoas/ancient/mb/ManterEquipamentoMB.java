@@ -43,13 +43,15 @@ public class ManterEquipamentoMB implements Serializable {
 	
 	public void remove()
 	{
-		equipamentoService.remove(this.equipamento);
+		equipamentoService.remove(equipamento);
 	}
 	
 	
 	public void salva()
 	{
-		equipamentoService.salva(this.equipamento);
+		equipamento.toString();
+		equipamentoService.salva(equipamento);
+		this.equipamento = new Equipamento();
 	}
 
 	public Equipamento getEquipamento() {

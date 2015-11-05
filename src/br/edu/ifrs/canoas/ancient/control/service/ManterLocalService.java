@@ -1,5 +1,7 @@
 package br.edu.ifrs.canoas.ancient.control.service;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
@@ -28,6 +30,12 @@ public class ManterLocalService {
 		localDAO.atualiza(local);
 	}
 
+	public List<Local> lista()
+	{
+		return (List<Local>) localDAO.buscaTodos();
+	}
+	
+	
 	public LocalDAO getLocalDAO() {
 		return localDAO;
 	}

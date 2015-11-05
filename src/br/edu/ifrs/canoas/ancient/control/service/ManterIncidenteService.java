@@ -1,11 +1,8 @@
 package br.edu.ifrs.canoas.ancient.control.service;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
-import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 
 import br.edu.ifrs.canoas.ancient.bean.Incidente;

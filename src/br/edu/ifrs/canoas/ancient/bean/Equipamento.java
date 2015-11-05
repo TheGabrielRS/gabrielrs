@@ -5,6 +5,7 @@ import java.io.Serializable;
 import br.edu.ifrs.canoas.ancient.bean.Local;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -16,6 +17,7 @@ public class Equipamento extends BaseEntity<Long> implements Serializable {
 	private String tombo;
 	
 	@NotNull
+	@ManyToOne
 	private Local local;
 	
 	@NotNull
