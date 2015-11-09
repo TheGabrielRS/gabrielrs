@@ -13,17 +13,16 @@
 	
 	<p:outputLabel for="grupo"
 					value="Grupo:" />
-	<p:selectOneMenu id="grupo" value="#{grupoMB.grupo}">
-		<f:selectItems var="grupo" value="#{grupoMB.grupos}" itemLabel="#{grupo.nome}" itemValue="#{grupo}"/>
+	<p:selectOneMenu id="grupo" value="#{manterGrupoMB.grupo}" converter="conversor">
+		<f:selectItems var="grupo" value="#{manterGrupoMB.grupos}" itemLabel="#{grupo.nome}" itemValue="#{grupo}"/>
 	</p:selectOneMenu>
 	
-	
-	<p:dataTable style="width: 50%" var="usu" value="#{manterUsuarioMB.usuarios}">
-		<p:column headerText="Nome" filterBy="#{usu.nome}" filterMatchMode="contains">
+	<p:dataTable style="width: 50%" var="usu" value="#{manterUsuarioMB.usuarios}" >
+		<p:column headerText="Nome" filterBy="#{usu.nome}" filterMatchMode="contains" >
 			<h:outputText value="#{usu.nome}" />
 		</p:column>
 		<p:column headerText="Opções">
-			<p:commandButton value="Adicionar ao grupo" action="#{manterGrupoMB.salvaEdicao()}" />
+			<p:commandButton value="Adicionar ao grupo" action="#{manterGrupoMB.salvaEdicao(usu)}" />
 		</p:column>
 	</p:dataTable>
 		

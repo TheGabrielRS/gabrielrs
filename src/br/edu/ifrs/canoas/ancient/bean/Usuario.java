@@ -3,6 +3,7 @@ package br.edu.ifrs.canoas.ancient.bean;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
@@ -31,6 +32,11 @@ public class Usuario extends BaseEntity<Long> implements Serializable {
 	
 	@NotNull
 	private boolean nivel;
+	
+	@ManyToOne
+	private Grupo grupo;
+	
+	
 	
 	public boolean isNivel() {
 		return nivel;

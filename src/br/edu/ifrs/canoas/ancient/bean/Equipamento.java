@@ -16,7 +16,6 @@ public class Equipamento extends BaseEntity<Long> implements Serializable {
 	@NotNull
 	private String tombo;
 	
-	@NotNull
 	@ManyToOne
 	private Local local;
 	

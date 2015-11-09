@@ -43,6 +43,14 @@ public class Incidente extends BaseEntity<Long> implements Serializable {
 	@ManyToOne
 	private Equipamento equipamento;
 
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
 	public Incidente(String titulo, Date data, String descricao, Grupo grupo, Local local, Equipamento equipamento) {
 		super();
 		this.titulo = titulo;

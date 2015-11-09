@@ -3,6 +3,7 @@ package br.edu.ifrs.canoas.ancient.mb;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -13,6 +14,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.edu.ifrs.canoas.ancient.bean.Grupo;
+import br.edu.ifrs.canoas.ancient.bean.Usuario;
 import br.edu.ifrs.canoas.ancient.control.service.GrupoService;
 
 @Named
@@ -28,7 +30,9 @@ public class ManterGrupoMB implements Serializable {
 	@Inject
 	private Grupo grupo;
 	
-	private List<Grupo> grupos = new ArrayList<Grupo>();
+	private List<Grupo> grupos;
+	
+	private Usuario[] usuarios;
 	
 	@Inject
 	private GrupoService grupoService;
@@ -42,9 +46,16 @@ public class ManterGrupoMB implements Serializable {
 	public void init()
 	{
 		lista();
+		System.out.println(grupos.toString());
+	}
+	
+	public void preenche()
+	{
+		this.grupo.setTecnicos(Arrays.asList(usuarios));
 	}
 	
 	public void salva() {
+		preenche();
 		if (grupoService.salvaGrupo(this.grupo)){
 			grupo = new Grupo();
 		}
@@ -54,14 +65,23 @@ public class ManterGrupoMB implements Serializable {
 		}	
 	}
 	
+	public Usuario[] getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(Usuario[] usuarios) {
+		this.usuarios = usuarios;
+	}
+
 	public String editar(Grupo grupo)
 	{
 		setGrupo(grupo);
 		return "/private/pages/grupo/editarGrupo?faces-redirect=true";
 	}
 	
-	public void salvaEdicao()
+	public void salvaEdicao(Usuario usuario)
 	{
+		grupo.getTecnicos().add(usuario);
 		grupoService.editarGrupo(grupo);
 	}
 	

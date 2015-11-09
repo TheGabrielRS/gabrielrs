@@ -29,6 +29,7 @@ public class GrupoService {
 			return true;
 		}catch(Exception E)
 		{
+			E.toString();
 			return false;
 		}
 	}
