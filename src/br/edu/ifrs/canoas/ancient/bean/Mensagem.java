@@ -2,8 +2,10 @@ package br.edu.ifrs.canoas.ancient.bean;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
+@Entity
 public class Mensagem extends BaseEntity<Long> implements Serializable {
 
 	private static final long serialVersionUID = -5179659812813041965L;

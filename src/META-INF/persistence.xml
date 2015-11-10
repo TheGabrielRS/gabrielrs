@@ -13,6 +13,7 @@
 		<class>br.edu.ifrs.canoas.ancient.bean.Grupo</class>
 		<class>br.edu.ifrs.canoas.ancient.bean.Equipamento</class>
 		<class>br.edu.ifrs.canoas.ancient.bean.Local</class>
+		<class>br.edu.ifrs.canoas.ancient.bean.Mensagem</class>
 
 		<properties>
 			

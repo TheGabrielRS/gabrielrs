@@ -5,7 +5,7 @@ import java.util.List;
 
 import br.edu.ifrs.canoas.ancient.model.dao.MensagemDAO;
 import br.edu.ifrs.canoas.ancient.bean.Mensagem;
-
+import br.edu.ifrs.canoas.ancient.bean.Usuario;
 
 @Stateless
 public class ManterMensagemService {
@@ -15,6 +15,11 @@ public class ManterMensagemService {
 	public List<Mensagem>  todas()
 	{
 		return mensagemDAO.buscaTodos();
+	}
+	
+	public List<Mensagem> mensagensUsuario(Usuario usuario)
+	{
+		return mensagemDAO.mensagensUsuario(usuario);
 	}
 
 }

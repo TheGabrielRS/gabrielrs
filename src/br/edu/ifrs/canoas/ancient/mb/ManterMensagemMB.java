@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
@@ -27,6 +28,7 @@ public class ManterMensagemMB implements Serializable {
 	
 	private List<Mensagem> naolidas;
 	
+	@EJB
 	private ManterMensagemService mensagemService;
 	
 	@ManagedProperty(value="#{gerenciarLoginMB}")
@@ -53,12 +55,7 @@ public class ManterMensagemMB implements Serializable {
 	
 	public void mensagensUsuario()
 	{
-		List<Mensagem> todas = mensagemService.todas();
-		for (Mensagem mensagem : todas)
-		{
-			if(mensagem.getDestinatario().equals(gerenciarLogin.getUsuario()))
-				mensagens.add(mensagem);
-		}
+		setMensagens(mensagemService.mensagensUsuario(gerenciarLogin.getUsuario()));
 	}
 	public List<Mensagem> getLidas() {
 		return lidas;
