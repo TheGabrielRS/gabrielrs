@@ -6,7 +6,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -34,13 +34,6 @@ public class ManterMensagemMB implements Serializable {
 	@ManagedProperty(value="#{gerenciarLoginMB}")
 	private GerenciarLoginMB gerenciarLogin;
 	
-	
-	@PostConstruct
-	public void init()
-	{
-		this.mensagensUsuario();
-		this.status();
-	}
 
 	public void status()
 	{
@@ -51,6 +44,12 @@ public class ManterMensagemMB implements Serializable {
 			else
 				naolidas.add(mensagemSelecionada);
 		}
+	}
+	
+	public void enviarMensagem()
+	{
+		mensagem.setRemetente(gerenciarLogin.getUsuario());
+		mensagemService.enviarMensagem(this.mensagem);
 	}
 	
 	public void mensagensUsuario()
@@ -79,6 +78,14 @@ public class ManterMensagemMB implements Serializable {
 
 	public void setMensagem(Mensagem mensagem) {
 		this.mensagem = mensagem;
+	}
+
+	public GerenciarLoginMB getGerenciarLogin() {
+		return gerenciarLogin;
+	}
+
+	public void setGerenciarLogin(GerenciarLoginMB gerenciarLogin) {
+		this.gerenciarLogin = gerenciarLogin;
 	}
 
 	public List<Mensagem> getMensagens() {

@@ -21,5 +21,10 @@ public class ManterMensagemService {
 	{
 		return mensagemDAO.mensagensUsuario(usuario);
 	}
+	
+	public void enviarMensagem(Mensagem mensagem)
+	{
+		mensagemDAO.insere(mensagem);
+	}
 
 }

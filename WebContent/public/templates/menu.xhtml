@@ -35,9 +35,11 @@
 					<p:menuitem rendered="#{gerenciarLoginMB.usuario.nivel}" value="Adicionar Equipamento" icon="fa fa-save" url="/private/pages/equipamento/cadastrarEquipamento.xhtml" />
 					<p:menuitem value="Buscar Equipamento" url="/private/pages/equipamento/buscarEquipamento.xhtml" />
 				</p:submenu>
+				<p:submenu label="Mensagens">
+					<p:menuitem value="Enviar Mensagem" url="/private/pages/mensagem/enviarMensagem.xhtml" />
+				</p:submenu>
 			</p:panelMenu>
 			<div></div>
-			
 			<p:panel style="width:96%; margin: 0 auto">
 				<p:commandButton action="#{gerenciarLoginMB.logout}" value="#{msg['button.logout']}" />
 			</p:panel>

@@ -12,13 +12,17 @@
 	<ui:define name="content">
 
 		<h:form>
-			<p:outputLabel for="destinatario" value="Destinatário:" />
-			<p:selectOneListbox id="destinatario" value="#{}" >
-				<f:selectItems value="" />
+			<p:panelGrid columns="2">
+				<p:outputLabel for="destinatario" value="Destinatário:" />
+				<p:selectOneListbox id="destinatario" value="#{manterMensagemMB.mensagem.destinatario}" converter="conversor">
+					<f:selectItems value="#{manterUsuarioMB.usuarios}" var="dest" itemLabel="#{dest.nome}" itemValue="#{dest}" required="true"  />
+				</p:selectOneListbox>
 			
-			</p:selectOneListbox>
-		
-		
+				<p:outputLabel for="mensagem" value="Mensagem:" />
+				<p:inputTextarea id="mensagem" value="#{manterMensagemMB.mensagem.mensagem}" rows="6" cols="33" required="true" />
+				
+				<p:commandButton value="Enviar" action="#{manterMensagemMB.enviarMensagem()}" />
+			</p:panelGrid>
 		</h:form>
 
 	
