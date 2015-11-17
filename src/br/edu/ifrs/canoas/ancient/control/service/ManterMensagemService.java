@@ -1,15 +1,18 @@
 package br.edu.ifrs.canoas.ancient.control.service;
 
-import javax.ejb.Stateless;
 import java.util.List;
 
-import br.edu.ifrs.canoas.ancient.model.dao.MensagemDAO;
+import javax.ejb.Stateless;
+import javax.inject.Inject;
+
 import br.edu.ifrs.canoas.ancient.bean.Mensagem;
 import br.edu.ifrs.canoas.ancient.bean.Usuario;
+import br.edu.ifrs.canoas.ancient.model.dao.MensagemDAO;
 
 @Stateless
 public class ManterMensagemService {
 	
+	@Inject
 	private MensagemDAO mensagemDAO;
 	
 	public List<Mensagem>  todas()

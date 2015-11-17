@@ -66,7 +66,7 @@ public class ManterLocalMB implements Serializable {
 	}
 
 	public List<Local> getLocais() {
-		return locais;
+		return localService.lista();
 	}
 
 	public void setLocais(List<Local> locais) {

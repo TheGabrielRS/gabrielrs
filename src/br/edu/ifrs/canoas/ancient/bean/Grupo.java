@@ -105,6 +105,11 @@ public class Grupo extends BaseEntity<Long> implements Serializable {
 		return serialVersionUID;
 	}
 	
+	@Override
+	public String toString() {
+		return nome;
+	}
+	
 	
 	
 	

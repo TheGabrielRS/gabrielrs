@@ -31,7 +31,7 @@ public class ManterMensagemMB implements Serializable {
 	@EJB
 	private ManterMensagemService mensagemService;
 	
-	@ManagedProperty(value="#{gerenciarLoginMB}")
+	@Inject
 	private GerenciarLoginMB gerenciarLogin;
 	
 
