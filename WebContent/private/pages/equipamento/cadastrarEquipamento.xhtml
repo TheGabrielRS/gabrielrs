@@ -25,7 +25,7 @@
 			<p:outputLabel for="descricao" value="Descição:" />
 			<p:inputTextarea id="descricao" rows="6" cols="33" value="#{manterEquipamentoMB.equipamento.descricao}" required="true"/>
 			
-			<p:commandButton value="Salvar" action="#{manterEquipamentoMB.salva}" />
+			<p:commandButton value="Salvar" action="#{manterEquipamentoMB.salva}" ajax="false"/>
 		
 		</h:panelGrid>
 	</p:panel>

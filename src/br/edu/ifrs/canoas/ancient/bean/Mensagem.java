@@ -16,12 +16,32 @@ public class Mensagem extends BaseEntity<Long> implements Serializable {
 	@OneToOne
 	private Usuario destinatario;
 	
+	private String titulo;
+	
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
 	private String mensagem;
 	
 	private boolean status;
 
 	public boolean isStatus() {
 		return status;
+	}
+	
+	public String statusAtual()
+	{
+		return this.status ? "Sim":"Não";
+	}
+	
+	public void lida()
+	{
+		setStatus(true);
 	}
 
 	public void setStatus(boolean status) {

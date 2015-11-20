@@ -7,6 +7,7 @@ import java.util.List;
 import br.edu.ifrs.canoas.ancient.bean.Equipamento;
 import br.edu.ifrs.canoas.ancient.control.service.ManterEquipamentoService;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -21,6 +22,13 @@ public class ManterEquipamentoMB implements Serializable {
 	private Equipamento equipamento;
 	
 	private List<Equipamento> equipamentos;
+	
+	@PostConstruct
+	public void init()
+	{
+		listaTodos();
+	}
+	
 	
 	@Inject
 	private ManterEquipamentoService equipamentoService;
@@ -49,7 +57,6 @@ public class ManterEquipamentoMB implements Serializable {
 	
 	public void salva()
 	{
-		equipamento.toString();
 		equipamentoService.salva(equipamento);
 		this.equipamento = new Equipamento();
 	}

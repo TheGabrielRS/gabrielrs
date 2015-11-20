@@ -17,11 +17,14 @@
 				<p:selectOneListbox id="destinatario" value="#{manterMensagemMB.mensagem.destinatario}" converter="conversor">
 					<f:selectItems value="#{manterUsuarioMB.usuarios}" var="dest" itemLabel="#{dest.nome}" itemValue="#{dest}" required="true"  />
 				</p:selectOneListbox>
-			
+				
+				<p:outputLabel for="titulo" value="Título:" />
+				<p:inputText id="titulo" value="#{manterMensagemMB.mensagem.titulo}" required="true" />
+				
 				<p:outputLabel for="mensagem" value="Mensagem:" />
 				<p:inputTextarea id="mensagem" value="#{manterMensagemMB.mensagem.mensagem}" rows="6" cols="33" required="true" />
 				
-				<p:commandButton value="Enviar" action="#{manterMensagemMB.enviarMensagem()}" />
+				<p:commandButton value="Enviar" action="#{manterMensagemMB.enviarMensagem}" ajax="false" />
 			</p:panelGrid>
 		</h:form>
 

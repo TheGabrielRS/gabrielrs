@@ -13,27 +13,34 @@
 		<h:form id="form">
 			<p:growl id="msgs" showDetail="true" />
 			<p:panel>
-				 <p:dataTable var="local" value="#{manterLocalMB.locais}" sortMode="multiple"  selection="#{manterIncidenteMB.incidentes}"
+				 <p:dataTable var="mens" value="#{manterMensagemMB.minhasMensagens}" sortMode="multiple"  selection="#{manterMensagemMB.minhasMensagens}"
 				 		 rows="5"
 				 		 paginator="true"
                          paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                          rowsPerPageTemplate="5,10,15" >
 	
-					<p:column headerText="Nome" filterBy="#{local.nome}" filterMatchMode="contains">
-							<h:outputText value="#{local.nome}" />
-					</p:column>
-
-					<p:column headerText="Endereço" filterBy="#{local.endereco}" filterMatchMode="contains" >
-							<h:outputText value="#{local.endereco}"  />
+					<p:column headerText="Remetente" filterBy="#{mens.remetente.nome}" filterMatchMode="contains">
+						<h:outputText value="#{mens.remetente.nome}" />
 					</p:column>
 					
-					<p:column rendered="#{gerenciarLoginMB.usuario.nivel}" headerText="Editar">
-						<p:commandButton value="Editar" action="#{manterLocalMB.editar(local)}" />
+					<p:column headerText="Titulo" filterBy="#{mens.titulo}" filterMatchMode="contains">
+						<h:outputText value="#{mens.titulo}" />
 					</p:column>
-				
+					
+					<p:column headerText="Lida">
+						<p:panelGrid columns="2" style="border-style: hidden">
+							<h:outputText value="#{mens.statusAtual()}"  />
+							<p:commandButton rendered="#{mens.status}" value="Ler" />
+						</p:panelGrid>
+					</p:column>
 				</p:dataTable>	
 			</p:panel>
 		</h:form>
+		
+	
+	
+	
+	
 	</ui:define>
-
+	
 </ui:composition>

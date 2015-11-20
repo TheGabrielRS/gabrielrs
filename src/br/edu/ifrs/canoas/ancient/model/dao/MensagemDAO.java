@@ -8,11 +8,10 @@ public class MensagemDAO extends BaseDAO {
 
 	private static final long serialVersionUID = -6243711678958222155L;
 	
-	public List<Mensagem> mensagensUsuario(Usuario usuario)
+	@SuppressWarnings("unchecked")
+	public List<Mensagem> todas()
 	{
-		return em.createQuery("Select i from Mensagem i WHERE i.destinatario = :usuario")
-		.setParameter("usuario", usuario)
-		.getResultList();
+		return em.createQuery("SELECT i FROM Mensagem i")
+				.getResultList();
 	}
-
 }

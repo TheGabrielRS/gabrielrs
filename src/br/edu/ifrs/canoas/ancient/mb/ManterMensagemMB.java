@@ -1,6 +1,7 @@
 package br.edu.ifrs.canoas.ancient.mb;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -24,52 +25,63 @@ public class ManterMensagemMB implements Serializable {
 	
 	private List<Mensagem> mensagens;
 	
-	private List<Mensagem> lidas;
-	
-	private List<Mensagem> naolidas;
-	
+	private List<Mensagem> minhasMensagens = new ArrayList<Mensagem>();
+
 	@EJB
 	private ManterMensagemService mensagemService;
 	
 	@Inject
 	private GerenciarLoginMB gerenciarLogin;
 	
-
-	public void status()
+	
+	@PostConstruct
+	public void init()
 	{
-		for(Mensagem mensagemSelecionada : mensagens)
-		{
-			if(mensagemSelecionada.isStatus())
-				lidas.add(mensagemSelecionada);
-			else
-				naolidas.add(mensagemSelecionada);
-		}
+		mensagensUsuario();
+	}
+	
+	public List<Mensagem> getMinhasMensagens() {
+		return minhasMensagens;
+	}
+
+	public void setMinhasMensagens(List<Mensagem> minhasMensagens) {
+		this.minhasMensagens = minhasMensagens;
+	}
+
+	public void lista()
+	{
+		setMensagens(mensagemService.todas());
 	}
 	
 	public void enviarMensagem()
 	{
 		mensagem.setRemetente(gerenciarLogin.getUsuario());
 		mensagemService.enviarMensagem(this.mensagem);
+		this.mensagem = new Mensagem();
 	}
 	
 	public void mensagensUsuario()
 	{
-		setMensagens(mensagemService.mensagensUsuario(gerenciarLogin.getUsuario()));
-	}
-	public List<Mensagem> getLidas() {
-		return lidas;
-	}
-
-	public void setLidas(List<Mensagem> lidas) {
-		this.lidas = lidas;
-	}
-
-	public List<Mensagem> getNaolidas() {
-		return naolidas;
-	}
-
-	public void setNaolidas(List<Mensagem> naolidas) {
-		this.naolidas = naolidas;
+		System.out.println("entrou no metodo");
+		lista();
+		System.out.println("preencheu a lista");
+		try{
+			for(Mensagem msg : this.mensagens)
+		
+			if(msg.getDestinatario().equals(this.getGerenciarLogin().getUsuario()))
+				this.minhasMensagens.add(msg);
+		}
+		catch(Exception e)
+		{
+			System.out.println("erro no foreach");
+			minhasMensagens.toString();
+		}
+			
+		/*mensagens.forEach(msg->{
+			if(msg.getDestinatario().equals(this.getGerenciarLogin().getUsuario()))
+				minhasMensagens.add(msg);
+			System.out.println(msg.getTitulo());
+		});*/
 	}
 
 	public Mensagem getMensagem() {

@@ -15,15 +15,16 @@ public class ManterMensagemService {
 	@Inject
 	private MensagemDAO mensagemDAO;
 	
-	public List<Mensagem>  todas()
+
+	public List<Mensagem> todas()
 	{
-		return mensagemDAO.buscaTodos();
+		return mensagemDAO.todas();
 	}
 	
-	public List<Mensagem> mensagensUsuario(Usuario usuario)
+	/*public List<Mensagem> mensagensUsuario(Usuario usuario)
 	{
 		return mensagemDAO.mensagensUsuario(usuario);
-	}
+	}*/
 	
 	public void enviarMensagem(Mensagem mensagem)
 	{
