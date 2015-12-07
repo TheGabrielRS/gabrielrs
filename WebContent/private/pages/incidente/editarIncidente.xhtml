@@ -31,8 +31,12 @@
 				<p:outputLabel for="grupo"
 					value="Grupo:" />
 				<p:selectOneMenu id="grupo" value="#{cadastrarIncidenteMB.incidente.grupo}" converter="conversor">
-					<f:selectItems var="grupo" value="#{grupoMB.grupos}" itemLabel="#{grupo.nome}" itemValue="#{grupo}"/>
+					<f:selectItems var="grupo" value="#{manterGrupoMB.grupos}" itemLabel="#{grupo.nome}" itemValue="#{grupo}"/>
 				</p:selectOneMenu>
+				
+				<p:outputLabel for="status"
+					value="Solucionado:"/>
+				<p:selectBooleanButton id="status" value="#{cadastrarIncidenteMB.incidente.status}" required="true" onLabel="Sim" offLabel="Não"/>
 				
 				<p:outputLabel for="local" value="Local: "/>
 				<p:selectOneMenu id="local" value="#{manterIncidenteMB.incidente.local}" converter="conversor">
@@ -41,7 +45,7 @@
 					
 					
 					
-				<p:commandButton value="#{msg['registrarIncidente.button.registra']}"
+				<p:commandButton value="Editar"
 					action="#{manterIncidenteMB.salvarEdicao}" ajax="false"
 					style="border: none;" />
 			</h:panelGrid>

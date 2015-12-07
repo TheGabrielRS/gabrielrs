@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.faces.bean.ManagedProperty;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -18,9 +17,8 @@ import br.edu.ifrs.canoas.ancient.control.service.ManterMensagemService;
 @SessionScoped
 public class ManterMensagemMB implements Serializable {
 
-	private static final long serialVersionUID = -5081577176810130550L;
-	
-	@Inject
+	private static final long serialVersionUID = 4230943228909481093L;
+
 	private Mensagem mensagem;
 	
 	private List<Mensagem> mensagens;
@@ -37,6 +35,7 @@ public class ManterMensagemMB implements Serializable {
 	@PostConstruct
 	public void init()
 	{
+		this.mensagem = new Mensagem();
 		mensagensUsuario();
 	}
 	
@@ -66,10 +65,10 @@ public class ManterMensagemMB implements Serializable {
 		lista();
 		System.out.println("preencheu a lista");
 		try{
-			for(Mensagem msg : this.mensagens)
-		
-			if(msg.getDestinatario().equals(this.getGerenciarLogin().getUsuario()))
-				this.minhasMensagens.add(msg);
+			mensagens.forEach(msg->{
+				if(msg.getDestinatario().equals(this.getGerenciarLogin().getUsuario()))
+					minhasMensagens.add(msg);
+			});
 		}
 		catch(Exception e)
 		{

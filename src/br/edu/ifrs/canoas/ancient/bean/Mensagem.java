@@ -18,6 +18,11 @@ public class Mensagem extends BaseEntity<Long> implements Serializable {
 	
 	private String titulo;
 	
+	private String mensagem;
+	
+	private boolean status;
+	
+	
 	public String getTitulo() {
 		return titulo;
 	}
@@ -26,9 +31,7 @@ public class Mensagem extends BaseEntity<Long> implements Serializable {
 		this.titulo = titulo;
 	}
 
-	private String mensagem;
 	
-	private boolean status;
 
 	public boolean isStatus() {
 		return status;
